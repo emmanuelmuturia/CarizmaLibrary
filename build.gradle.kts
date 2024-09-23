@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(notation = libs.plugins.ktlint)
+    alias(notation = libs.plugins.detekt)
 }
 
 subprojects {
@@ -14,4 +15,9 @@ subprojects {
             exclude("**/generated/**")
         }
     }
+}
+
+apply(plugin = "io.gitlab.arturbosch.detekt")
+detekt {
+    parallel = true
 }
