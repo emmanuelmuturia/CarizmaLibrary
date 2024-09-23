@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "CarizmaLibrary"
 include(":app")
+include(":carizmaLibrary")
