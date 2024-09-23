@@ -31,7 +31,7 @@ Copyright 2024 Carizma Library All Rights Reserved.
         android:theme="@style/Theme.CarizmaLibrary"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CarizmaLibrary">
