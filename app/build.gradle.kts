@@ -87,5 +87,4 @@ dependencies {
 
     debugImplementation(dependencyNotation = libs.androidx.ui.tooling)
     debugImplementation(dependencyNotation = libs.androidx.ui.test.manifest)
-
 }
