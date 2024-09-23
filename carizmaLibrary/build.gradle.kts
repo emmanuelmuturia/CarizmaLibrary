@@ -38,8 +38,6 @@ android {
 dependencies {
 
     implementation(dependencyNotation = libs.androidx.core.ktx)
-    implementation(dependencyNotation = libs.androidx.appcompat)
-    implementation(dependencyNotation = libs.material)
     testImplementation(dependencyNotation = libs.junit)
     androidTestImplementation(dependencyNotation = libs.androidx.junit)
     androidTestImplementation(dependencyNotation = libs.androidx.espresso.core)
