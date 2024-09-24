@@ -14,6 +14,6 @@
  * limitations under the License.
  *
  */
-package emmanuelmuturia.carizmalibrary.core
+package emmanuelmuturia.carizmalibrary.data.core
 
 class CarizmaLibrary
