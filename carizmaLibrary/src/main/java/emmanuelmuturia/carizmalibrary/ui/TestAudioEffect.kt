@@ -1,6 +1,8 @@
 package emmanuelmuturia.carizmalibrary.ui
 
 import android.media.MediaPlayer
+import android.media.audiofx.EnvironmentalReverb
+import android.media.audiofx.PresetReverb
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,7 +29,7 @@ fun TestAudioEffect(modifier: Modifier = Modifier) {
     var isPlaying by remember { mutableStateOf(value = false) }
 
     val context = LocalContext.current
-    var mediaPlayer = MediaPlayer.create(context, R.raw.monza)
+    var mediaPlayer = MediaPlayer.create(context, R.raw.solo)
 
     Column(
         modifier = modifier.fillMaxSize(),
@@ -37,7 +39,8 @@ fun TestAudioEffect(modifier: Modifier = Modifier) {
         IconButton(onClick = {
             isPlaying = !isPlaying
             if (isPlaying) {
-                startPanning(mediaPlayer = mediaPlayer)
+                //startPanning(mediaPlayer = mediaPlayer)
+                applyReverb(mediaPlayer = mediaPlayer)
             } else {
                 mediaPlayer?.release()
                 mediaPlayer = null
@@ -71,4 +74,23 @@ private fun startPanning(mediaPlayer: MediaPlayer) {
             applyStereoPanning(pan = currentPan, mediaPlayer = mediaPlayer)
         }
     }, 0, 50)
+}
+
+private fun applyReverb(mediaPlayer: MediaPlayer) {
+    EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
+        enabled = true
+        decayHFRatio = 0  // Extremely low decay ratio
+        decayTime = 20000    // Maximum long decay time
+        density = 1000       // Maximum density
+        diffusion = 1000     // Maximum diffusion
+        reverbLevel = 1000   // Maximum reverb effect
+        reverbDelay = 1000   // Maximum reverb delay
+    }
+    /*val reverb = PresetReverb(1, 0).apply {
+        enabled = true
+        preset = PresetReverb.PRESET_LARGEHALL
+    }
+    mediaPlayer.attachAuxEffect(reverb.id)
+    mediaPlayer.setAuxEffectSendLevel(1.0f)*/
+    mediaPlayer.start()
 }
