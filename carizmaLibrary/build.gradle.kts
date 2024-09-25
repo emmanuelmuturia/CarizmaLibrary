@@ -62,6 +62,8 @@ dependencies {
     implementation(dependencyNotation = libs.androidx.ui.tooling.preview)
     implementation(dependencyNotation = libs.androidx.material3)
 
+    implementation(dependencyNotation = libs.media3.exoplayer)
+
     testImplementation(dependencyNotation = libs.junit)
 
     androidTestImplementation(dependencyNotation = libs.androidx.junit)
