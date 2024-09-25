@@ -25,7 +25,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import emmanuelmuturia.carizma.theme.CarizmaLibraryTheme
-import emmanuelmuturia.carizmalibrary.ui.TestStereoPanningEffect
+import emmanuelmuturia.carizmalibrary.ui.TestAudioEffect
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CarizmaLibraryTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
-                    TestStereoPanningEffect(modifier = Modifier.padding(paddingValues = paddingValues))
+                    TestAudioEffect(modifier = Modifier.padding(paddingValues = paddingValues))
                 }
             }
         }
