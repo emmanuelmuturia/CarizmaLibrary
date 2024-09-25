@@ -33,18 +33,6 @@ fun TestStereoPanningEffect(modifier: Modifier = Modifier) {
     var isPlaying by remember { mutableStateOf(value = false) }
 
     val context = LocalContext.current
-    /*val uri: Uri = Uri.parse("android.resource://${context.packageName}/raw/monza")
-    val mediaPlayer = MediaPlayer().apply {
-        setAudioAttributes(
-            android.media.AudioAttributes.Builder()
-                .setContentType(android.media.AudioAttributes.CONTENT_TYPE_MUSIC)
-                .setUsage(android.media.AudioAttributes.USAGE_MEDIA)
-                .build()
-        )
-        setDataSource(context, uri)
-        prepare()
-        start()
-    }*/
     var mediaPlayer = MediaPlayer.create(context, R.raw.monza)
 
     Column(
@@ -55,7 +43,6 @@ fun TestStereoPanningEffect(modifier: Modifier = Modifier) {
         IconButton(onClick = {
             isPlaying = !isPlaying
             if (isPlaying) {
-                mediaPlayer.start()
                 startPanning(mediaPlayer = mediaPlayer)
             } else {
                 mediaPlayer?.release()
@@ -80,6 +67,7 @@ private fun applyStereoPanning(
 private fun startPanning(mediaPlayer: MediaPlayer) {
     var currentPan = -1f
     val panSpeed = 0.01f
+    mediaPlayer.start()
     Timer().schedule(object :TimerTask() {
         override fun run() {
             currentPan += panSpeed
