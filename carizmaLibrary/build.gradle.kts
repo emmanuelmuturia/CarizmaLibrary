@@ -68,5 +68,4 @@ dependencies {
 
     androidTestImplementation(dependencyNotation = libs.androidx.junit)
     androidTestImplementation(dependencyNotation = libs.androidx.espresso.core)
-
 }

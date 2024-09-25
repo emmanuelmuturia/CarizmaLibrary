@@ -1,8 +1,23 @@
+/*
+ * Copyright 2024 Carizma Library
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 package emmanuelmuturia.carizmalibrary.ui
 
 import android.media.MediaPlayer
 import android.media.audiofx.EnvironmentalReverb
-import android.media.audiofx.PresetReverb
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,7 +40,6 @@ import java.util.TimerTask
 
 @Composable
 fun TestAudioEffect(modifier: Modifier = Modifier) {
-
     var isPlaying by remember { mutableStateOf(value = false) }
 
     val context = LocalContext.current
@@ -39,25 +53,27 @@ fun TestAudioEffect(modifier: Modifier = Modifier) {
         IconButton(onClick = {
             isPlaying = !isPlaying
             if (isPlaying) {
-                //startPanning(mediaPlayer = mediaPlayer)
+                // startPanning(mediaPlayer = mediaPlayer)
                 applyReverb(mediaPlayer = mediaPlayer)
             } else {
                 mediaPlayer?.release()
                 mediaPlayer = null
             }
         }) {
-            Icon(imageVector = if (isPlaying) Icons.Rounded.Clear else Icons.Rounded.PlayArrow, contentDescription = "")
+            Icon(
+                imageVector = if (isPlaying) Icons.Rounded.Clear else Icons.Rounded.PlayArrow,
+                contentDescription = ""
+            )
         }
     }
-
 }
 
 private fun applyStereoPanning(
     pan: Float,
     mediaPlayer: MediaPlayer
 ) {
-    val leftVolume = if(pan < 0) 1f + pan else 1f
-    val rightVolume = if(pan > 0) 1f - pan else 1f
+    val leftVolume = if (pan < 0) 1f + pan else 1f
+    val rightVolume = if (pan > 0) 1f - pan else 1f
     mediaPlayer.setVolume(leftVolume, rightVolume)
 }
 
@@ -65,26 +81,30 @@ private fun startPanning(mediaPlayer: MediaPlayer) {
     var currentPan = -1f
     val panSpeed = 0.01f
     mediaPlayer.start()
-    Timer().schedule(object :TimerTask() {
-        override fun run() {
-            currentPan += panSpeed
-            if (currentPan > 1f || currentPan < -1f) {
-                currentPan = -1f
+    Timer().schedule(
+        object : TimerTask() {
+            override fun run() {
+                currentPan += panSpeed
+                if (currentPan > 1f || currentPan < -1f) {
+                    currentPan = -1f
+                }
+                applyStereoPanning(pan = currentPan, mediaPlayer = mediaPlayer)
             }
-            applyStereoPanning(pan = currentPan, mediaPlayer = mediaPlayer)
-        }
-    }, 0, 50)
+        },
+        0,
+        50
+    )
 }
 
 private fun applyReverb(mediaPlayer: MediaPlayer) {
     EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
         enabled = true
-        decayHFRatio = 0  // Extremely low decay ratio
-        decayTime = 20000    // Maximum long decay time
-        density = 1000       // Maximum density
-        diffusion = 1000     // Maximum diffusion
-        reverbLevel = 1000   // Maximum reverb effect
-        reverbDelay = 1000   // Maximum reverb delay
+        decayHFRatio = 0 // Extremely low decay ratio
+        decayTime = 20000 // Maximum long decay time
+        density = 1000 // Maximum density
+        diffusion = 1000 // Maximum diffusion
+        reverbLevel = 1000 // Maximum reverb effect
+        reverbDelay = 1000 // Maximum reverb delay
     }
     /*val reverb = PresetReverb(1, 0).apply {
         enabled = true
