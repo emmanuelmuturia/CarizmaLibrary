@@ -68,33 +68,7 @@ fun TestAudioEffect(modifier: Modifier = Modifier) {
     }
 }
 
-private fun applyStereoPanning(
-    pan: Float,
-    mediaPlayer: MediaPlayer
-) {
-    val leftVolume = if (pan < 0) 1f + pan else 1f
-    val rightVolume = if (pan > 0) 1f - pan else 1f
-    mediaPlayer.setVolume(leftVolume, rightVolume)
-}
 
-private fun startPanning(mediaPlayer: MediaPlayer) {
-    var currentPan = -1f
-    val panSpeed = 0.01f
-    mediaPlayer.start()
-    Timer().schedule(
-        object : TimerTask() {
-            override fun run() {
-                currentPan += panSpeed
-                if (currentPan > 1f || currentPan < -1f) {
-                    currentPan = -1f
-                }
-                applyStereoPanning(pan = currentPan, mediaPlayer = mediaPlayer)
-            }
-        },
-        0,
-        50
-    )
-}
 
 private fun applyReverb(mediaPlayer: MediaPlayer) {
     EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
