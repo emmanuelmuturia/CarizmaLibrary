@@ -35,8 +35,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import emmanuelmuturia.carizmalibrary.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import java.util.Timer
 import java.util.TimerTask
+import kotlin.math.sin
 
 @Composable
 fun TestAudioEffect(modifier: Modifier = Modifier) {
@@ -68,7 +74,38 @@ fun TestAudioEffect(modifier: Modifier = Modifier) {
     }
 }
 
+private fun applyAutoPanning(
+    mediaPlayer: MediaPlayer,
+    frequency: Float,
+    amount: Float
+) {
 
+    val panningJob = CoroutineScope(context = Dispatchers.Main).launch {
+
+        var phase = 0.0
+
+        while (isActive) {
+
+            val leftVolume = ((1 - amount / 100) * sin(x = phase) + 1).toFloat() / 2
+            val rightVolume = ((1 + amount / 100) * sin(x = phase) + 1).toFloat() / 2
+
+            mediaPlayer.setVolume(leftVolume, rightVolume)
+
+            phase += (2 * Math.PI * frequency) / 60
+
+            delay(timeMillis = 16L)
+
+            mediaPlayer.start()
+
+        }
+
+    }
+
+    mediaPlayer.setOnCompletionListener {
+        panningJob.cancel()
+    }
+
+}
 
 private fun applyReverb(mediaPlayer: MediaPlayer) {
     EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
