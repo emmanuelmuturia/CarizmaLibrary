@@ -40,8 +40,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import java.util.Timer
-import java.util.TimerTask
 import kotlin.math.sin
 
 @Composable
@@ -59,8 +57,8 @@ fun TestAudioEffect(modifier: Modifier = Modifier) {
         IconButton(onClick = {
             isPlaying = !isPlaying
             if (isPlaying) {
-                // startPanning(mediaPlayer = mediaPlayer)
-                applyReverb(mediaPlayer = mediaPlayer)
+                //applyAutoPanning(mediaPlayer = mediaPlayer)
+                //applyReverb(mediaPlayer = mediaPlayer)
             } else {
                 mediaPlayer?.release()
                 mediaPlayer = null
@@ -76,9 +74,11 @@ fun TestAudioEffect(modifier: Modifier = Modifier) {
 
 private fun applyAutoPanning(
     mediaPlayer: MediaPlayer,
-    frequency: Float,
-    amount: Float
+    frequency: Float = 0.08f,
+    amount: Float = 85f
 ) {
+
+    mediaPlayer.start()
 
     val panningJob = CoroutineScope(context = Dispatchers.Main).launch {
 
@@ -95,8 +95,6 @@ private fun applyAutoPanning(
 
             delay(timeMillis = 16L)
 
-            mediaPlayer.start()
-
         }
 
     }
@@ -110,18 +108,16 @@ private fun applyAutoPanning(
 private fun applyReverb(mediaPlayer: MediaPlayer) {
     EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
         enabled = true
-        decayHFRatio = 0 // Extremely low decay ratio
-        decayTime = 20000 // Maximum long decay time
-        density = 1000 // Maximum density
-        diffusion = 1000 // Maximum diffusion
-        reverbLevel = 1000 // Maximum reverb effect
-        reverbDelay = 1000 // Maximum reverb delay
+        roomLevel = 0 // This is the maximum room size based on a 100% Room Scale...
+        roomHFLevel = -4500 // This is 50% HF Damping...
+        decayTime = 10000 // This is 50% Reverberance (Decay Time in Milliseconds)...
+        decayHFRatio = 1000 // This is the balanced Decay for Low and High Frequencies...
+        reflectionsLevel = -2000 // This is a moderately early Reflection Level...
+        reflectionsDelay = 0 // This is a 0 ms Pre-Delay...
+        reverbLevel = 0 // This is a Wet Gain (Maximum Reverb Intensity)...
+        reverbDelay = 0 // This is a 0 ms Delay before Reverberation starts...
+        diffusion = 1000 // This is Maximum Stereo Depth (100%)...
+        density = 1000 // Maximum Density (100%)
     }
-    /*val reverb = PresetReverb(1, 0).apply {
-        enabled = true
-        preset = PresetReverb.PRESET_LARGEHALL
-    }
-    mediaPlayer.attachAuxEffect(reverb.id)
-    mediaPlayer.setAuxEffectSendLevel(1.0f)*/
     mediaPlayer.start()
 }
