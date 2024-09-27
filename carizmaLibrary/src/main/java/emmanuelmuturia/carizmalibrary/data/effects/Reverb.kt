@@ -21,5 +21,4 @@ internal fun applyReverb(mediaPlayer: MediaPlayer) {
         diffusion = 1000 // This is Maximum Stereo Depth (100%)...
         density = 1000 // Maximum Density (100%)
     }
-    mediaPlayer.start()
 }
