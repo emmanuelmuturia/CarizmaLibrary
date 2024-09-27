@@ -28,7 +28,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CarizmaLibraryTheme {
-
             }
         }
     }
