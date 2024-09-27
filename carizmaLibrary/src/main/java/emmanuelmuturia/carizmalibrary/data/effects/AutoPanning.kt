@@ -14,16 +14,15 @@
  * limitations under the License.
  *
  */
-
 package emmanuelmuturia.carizmalibrary.data.effects
 
 import android.media.MediaPlayer
+import kotlin.math.sin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import kotlin.math.sin
 
 /**
  * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
@@ -35,7 +34,6 @@ internal fun applyAutoPanning(
     frequency: Float = 0.08f,
     amount: Float = 85f
 ) {
-
     val panningJob = CoroutineScope(context = Dispatchers.Main).launch {
         var phase = 0.0
 
