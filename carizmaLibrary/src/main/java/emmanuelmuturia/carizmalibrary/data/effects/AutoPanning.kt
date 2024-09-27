@@ -15,11 +15,6 @@
  *
  */
 
-/**
- * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
- * shifting the Left Volume and the Right Volume of the audio...
- */
-
 package emmanuelmuturia.carizmalibrary.data.effects
 
 import android.media.MediaPlayer
@@ -30,13 +25,16 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlin.math.sin
 
+/**
+ * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
+ * shifting the Left Volume and the Right Volume of the audio...
+ */
 
 internal fun applyAutoPanning(
     mediaPlayer: MediaPlayer,
     frequency: Float = 0.08f,
     amount: Float = 85f
 ) {
-    mediaPlayer.start()
 
     val panningJob = CoroutineScope(context = Dispatchers.Main).launch {
         var phase = 0.0
