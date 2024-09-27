@@ -3,6 +3,10 @@ package emmanuelmuturia.carizmalibrary.data.effects
 import android.media.MediaPlayer
 import android.media.audiofx.EnvironmentalReverb
 
+/**
+ * This is the Reverb Effect that creates the illusion of sound occurring in a specific space...
+ */
+
 internal fun applyReverb(mediaPlayer: MediaPlayer) {
     EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
         enabled = true

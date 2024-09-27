@@ -14,6 +14,12 @@
  * limitations under the License.
  *
  */
+
+/**
+ * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
+ * shifting the Left Volume and the Right Volume of the audio...
+ */
+
 package emmanuelmuturia.carizmalibrary.data.effects
 
 import android.media.MediaPlayer
