@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 import kotlin.math.sin
 
 
-private fun applyAutoPanning(
+internal fun applyAutoPanning(
     mediaPlayer: MediaPlayer,
     frequency: Float = 0.08f,
     amount: Float = 85f
@@ -53,7 +53,7 @@ private fun applyAutoPanning(
     }
 }
 
-private fun applyReverb(mediaPlayer: MediaPlayer) {
+internal fun applyReverb(mediaPlayer: MediaPlayer) {
     EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
         enabled = true
         roomLevel = 0 // This is the maximum room size based on a 100% Room Scale...
