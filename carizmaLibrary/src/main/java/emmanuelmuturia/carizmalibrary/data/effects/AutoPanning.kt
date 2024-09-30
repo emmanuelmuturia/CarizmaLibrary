@@ -56,7 +56,7 @@ internal suspend fun applyAutoPanning(
             // Progress the Phase for the next cycle, ensuring smooth Auto Panning...
             phase += (2 * Math.PI * frequency) / 60
 
-            // Add a slight delay for smoother transitions
+            // Add a slight Delay for smoother transitions...
             delay(timeMillis = 16L)
         }
     }
