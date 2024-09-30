@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 fun TestAudioEffects(modifier: Modifier = Modifier, context: Context) {
     var isPlaying by remember { mutableStateOf(value = false) }
 
-    var mediaPlayer = MediaPlayer.create(context, R.raw.solo)
+    var mediaPlayer = MediaPlayer.create(context, R.raw.monza)
 
     val coroutineScope = rememberCoroutineScope()
 
