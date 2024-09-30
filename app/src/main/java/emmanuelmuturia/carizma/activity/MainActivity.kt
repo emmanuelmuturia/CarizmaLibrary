@@ -40,8 +40,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import emmanuelmuturia.carizmalibrary.R
 import emmanuelmuturia.carizma.theme.CarizmaLibraryTheme
+import emmanuelmuturia.carizmalibrary.R
 import emmanuelmuturia.carizmalibrary.data.extensions.to8D
 import kotlinx.coroutines.launch
 
