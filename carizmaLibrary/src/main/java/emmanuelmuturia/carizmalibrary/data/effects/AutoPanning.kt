@@ -17,39 +17,35 @@
 package emmanuelmuturia.carizmalibrary.data.effects
 
 import android.media.MediaPlayer
-import kotlin.math.sin
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.math.sin
 
 /**
  * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
  * shifting the Left Volume and the Right Volume of the audio...
  */
 
-internal fun applyAutoPanning(
+internal suspend fun applyAutoPanning(
     mediaPlayer: MediaPlayer,
     frequency: Float = 0.08f,
-    amount: Float = 85f
+    amount: Float = 85f,
+    coroutineDispatcher: CoroutineDispatcher
 ) {
-    val panningJob = CoroutineScope(context = Dispatchers.Main).launch {
-        var phase = 0.0
+    withContext(context = coroutineDispatcher) {
+            var phase = 0.0
 
-        while (isActive) {
-            val leftVolume = ((1 - amount / 100) * sin(x = phase) + 1).toFloat() / 2
-            val rightVolume = ((1 + amount / 100) * sin(x = phase) + 1).toFloat() / 2
+            while (isActive) {
+                val leftVolume = ((1 - amount / 100) * sin(x = phase) + 1).toFloat() / 2
+                val rightVolume = ((1 + amount / 100) * sin(x = phase) + 1).toFloat() / 2
 
-            mediaPlayer.setVolume(leftVolume, rightVolume)
+                mediaPlayer.setVolume(leftVolume, rightVolume)
 
-            phase += (2 * Math.PI * frequency) / 60
+                phase += (2 * Math.PI * frequency) / 60
 
-            delay(timeMillis = 16L)
-        }
-    }
-
-    mediaPlayer.setOnCompletionListener {
-        panningJob.cancel()
+                delay(timeMillis = 16L)
+            }
     }
 }
