@@ -30,7 +30,7 @@ import kotlinx.coroutines.withContext
 
 internal suspend fun applyAutoPanning(
     mediaPlayer: MediaPlayer,
-    frequency: Float = 0.08f,
+    frequency: Float = 0.49f,
     amount: Float = 80f,
     coroutineDispatcher: CoroutineDispatcher
 ) {
