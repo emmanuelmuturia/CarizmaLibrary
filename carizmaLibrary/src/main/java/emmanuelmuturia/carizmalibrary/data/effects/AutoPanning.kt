@@ -31,20 +31,32 @@ import kotlinx.coroutines.withContext
 internal suspend fun applyAutoPanning(
     mediaPlayer: MediaPlayer,
     frequency: Float = 0.08f,
-    amount: Float = 85f,
+    amount: Float = 80f,
     coroutineDispatcher: CoroutineDispatcher
 ) {
     withContext(context = coroutineDispatcher) {
         var phase = 0.0
 
         while (isActive) {
-            val leftVolume = ((1 - amount / 100) * sin(x = phase) + 1).toFloat() / 2
-            val rightVolume = ((1 + amount / 100) * sin(x = phase) + 1).toFloat() / 2
+            // Calculate the Left and Right Volumes using the Sine Wave, but with a smoother transition...
+            val leftVolume =
+                (0.5f * (1 - amount / 100) * sin(x = phase) + 0.6f).coerceIn(
+                    minimumValue = 0.3,
+                    maximumValue = 0.9
+                ).toFloat()
+            val rightVolume =
+                (0.5f * (1 + amount / 100) * sin(x = phase + Math.PI) + 0.6f).coerceIn(
+                    minimumValue = 0.3,
+                    maximumValue = 0.9
+                ).toFloat()
 
+            // Apply the calculated Volumes to MediaPlayer...
             mediaPlayer.setVolume(leftVolume, rightVolume)
 
+            // Progress the Phase for the next cycle, ensuring smooth Auto Panning...
             phase += (2 * Math.PI * frequency) / 60
 
+            // Add a slight delay for smoother transitions
             delay(timeMillis = 16L)
         }
     }
