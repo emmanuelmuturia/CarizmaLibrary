@@ -34,12 +34,16 @@ suspend fun MediaPlayer.to8D(
     frequency: Float = 0.08f,
     amount: Float = 85f
 ) {
-
     val coroutineDispatcher = Dispatchers.Default
 
     applyReverb(mediaPlayer = mediaPlayer, coroutineDispatcher = coroutineDispatcher)
     mediaPlayer.start()
-    applyAutoPanning(mediaPlayer = mediaPlayer, frequency = frequency, amount = amount, coroutineDispatcher = coroutineDispatcher)
+    applyAutoPanning(
+        mediaPlayer = mediaPlayer,
+        frequency = frequency,
+        amount = amount,
+        coroutineDispatcher = coroutineDispatcher
+    )
     mediaPlayer.setOnCompletionListener {
         mediaPlayer.release()
     }

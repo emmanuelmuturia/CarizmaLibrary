@@ -25,7 +25,10 @@ import kotlinx.coroutines.withContext
  * This is the Reverb Effect that creates the illusion of sound occurring in a specific space...
  */
 
-internal suspend fun applyReverb(mediaPlayer: MediaPlayer, coroutineDispatcher: CoroutineDispatcher) {
+internal suspend fun applyReverb(
+    mediaPlayer: MediaPlayer,
+    coroutineDispatcher: CoroutineDispatcher
+) {
     withContext(context = coroutineDispatcher) {
         EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
             enabled = true

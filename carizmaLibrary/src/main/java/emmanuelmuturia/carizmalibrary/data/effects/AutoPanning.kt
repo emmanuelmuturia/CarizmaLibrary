@@ -17,11 +17,11 @@
 package emmanuelmuturia.carizmalibrary.data.effects
 
 import android.media.MediaPlayer
+import kotlin.math.sin
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
-import kotlin.math.sin
 
 /**
  * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
@@ -35,17 +35,17 @@ internal suspend fun applyAutoPanning(
     coroutineDispatcher: CoroutineDispatcher
 ) {
     withContext(context = coroutineDispatcher) {
-            var phase = 0.0
+        var phase = 0.0
 
-            while (isActive) {
-                val leftVolume = ((1 - amount / 100) * sin(x = phase) + 1).toFloat() / 2
-                val rightVolume = ((1 + amount / 100) * sin(x = phase) + 1).toFloat() / 2
+        while (isActive) {
+            val leftVolume = ((1 - amount / 100) * sin(x = phase) + 1).toFloat() / 2
+            val rightVolume = ((1 + amount / 100) * sin(x = phase) + 1).toFloat() / 2
 
-                mediaPlayer.setVolume(leftVolume, rightVolume)
+            mediaPlayer.setVolume(leftVolume, rightVolume)
 
-                phase += (2 * Math.PI * frequency) / 60
+            phase += (2 * Math.PI * frequency) / 60
 
-                delay(timeMillis = 16L)
-            }
+            delay(timeMillis = 16L)
+        }
     }
 }
