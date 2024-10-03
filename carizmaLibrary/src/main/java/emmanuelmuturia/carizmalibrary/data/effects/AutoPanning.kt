@@ -26,25 +26,42 @@ import kotlinx.coroutines.withContext
 /**
  * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
  * shifting the Left Volume and the Right Volume of the audio...
+ *
+ * @param mediaPlayer This is the [MediaPlayer] class that will be declared and used (Singleton Pattern) to control the audio and the Audio Effects...
+ * @param frequency This is the Frequency of the Auto Panning Effect and it controls the speed in which the audio pans to both Left and Right...
+ * @param amount This is used to control how far the audio moves between channels...
+ * @param coroutineDispatcher This represents a [CoroutineDispatcher] instance that specifies on which Thread the Coroutine(s) will run on...
  */
 
 internal suspend fun applyAutoPanning(
     mediaPlayer: MediaPlayer,
-    frequency: Float = 0.08f,
-    amount: Float = 85f,
+    frequency: Float = 0.49f,
+    amount: Float = 80f,
     coroutineDispatcher: CoroutineDispatcher
 ) {
     withContext(context = coroutineDispatcher) {
         var phase = 0.0
 
         while (isActive) {
-            val leftVolume = ((1 - amount / 100) * sin(x = phase) + 1).toFloat() / 2
-            val rightVolume = ((1 + amount / 100) * sin(x = phase) + 1).toFloat() / 2
+            // Calculate the Left and Right Volumes using the Sine Wave, but with a smoother transition...
+            val leftVolume =
+                (0.5f * (1 - amount / 100) * sin(x = phase) + 0.6f).coerceIn(
+                    minimumValue = 0.3,
+                    maximumValue = 0.9
+                ).toFloat()
+            val rightVolume =
+                (0.5f * (1 + amount / 100) * sin(x = phase + Math.PI) + 0.6f).coerceIn(
+                    minimumValue = 0.3,
+                    maximumValue = 0.9
+                ).toFloat()
 
+            // Apply the calculated Volumes to MediaPlayer...
             mediaPlayer.setVolume(leftVolume, rightVolume)
 
+            // Progress the Phase for the next cycle, ensuring smooth Auto Panning...
             phase += (2 * Math.PI * frequency) / 60
 
+            // Add a slight Delay for smoother transitions...
             delay(timeMillis = 16L)
         }
     }
