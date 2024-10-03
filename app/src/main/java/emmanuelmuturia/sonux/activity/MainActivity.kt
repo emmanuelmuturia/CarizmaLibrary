@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package emmanuelmuturia.carizma.activity
+package emmanuelmuturia.sonux.activity
 
 import android.content.Context
 import android.media.MediaPlayer
@@ -40,9 +40,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import emmanuelmuturia.carizma.theme.CarizmaLibraryTheme
-import emmanuelmuturia.carizmalibrary.R
-import emmanuelmuturia.carizmalibrary.data.extensions.to8D
+import emmanuelmuturia.sonux.theme.CarizmaLibraryTheme
+import emmanuelmuturia.sonux.R
+import emmanuelmuturia.sonux.data.extensions.to8D
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {

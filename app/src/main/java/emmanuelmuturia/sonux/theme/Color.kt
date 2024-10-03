@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package emmanuelmuturia.carizma.ui.theme
+package emmanuelmuturia.sonux.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package emmanuelmuturia.carizma.theme
+package emmanuelmuturia.sonux.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -25,13 +25,13 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import emmanuelmuturia.carizma.ui.theme.Pink40
-import emmanuelmuturia.carizma.ui.theme.Pink80
-import emmanuelmuturia.carizma.ui.theme.Purple40
-import emmanuelmuturia.carizma.ui.theme.Purple80
-import emmanuelmuturia.carizma.ui.theme.PurpleGrey40
-import emmanuelmuturia.carizma.ui.theme.PurpleGrey80
-import emmanuelmuturia.carizma.ui.theme.Typography
+import emmanuelmuturia.sonux.ui.theme.Pink40
+import emmanuelmuturia.sonux.ui.theme.Pink80
+import emmanuelmuturia.sonux.ui.theme.Purple40
+import emmanuelmuturia.sonux.ui.theme.Purple80
+import emmanuelmuturia.sonux.ui.theme.PurpleGrey40
+import emmanuelmuturia.sonux.ui.theme.PurpleGrey80
+import emmanuelmuturia.sonux.ui.theme.Typography
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
