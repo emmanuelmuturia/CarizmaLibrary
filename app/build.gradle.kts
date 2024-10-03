@@ -21,11 +21,11 @@ plugins {
 }
 
 android {
-    namespace = "emmanuelmuturia.carizma"
+    namespace = "emmanuelmuturia.sonux"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "emmanuelmuturia.carizma"
+        applicationId = "emmanuelmuturia.sonux"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

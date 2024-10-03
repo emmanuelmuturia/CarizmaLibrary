@@ -14,11 +14,11 @@
  * limitations under the License.
  *
  */
-package emmanuelmuturia.carizmalibrary.data.extensions
+package emmanuelmuturia.sonux.data.extensions
 
 import android.media.MediaPlayer
-import emmanuelmuturia.carizmalibrary.data.effects.applyAutoPanning
-import emmanuelmuturia.carizmalibrary.data.effects.applyReverb
+import emmanuelmuturia.sonux.data.effects.applyAutoPanning
+import emmanuelmuturia.sonux.data.effects.applyReverb
 import kotlinx.coroutines.Dispatchers
 
 /**

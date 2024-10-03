@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package emmanuelmuturia.carizmalibrary.data.effects
+package emmanuelmuturia.sonux.data.effects
 
 import android.media.MediaPlayer
 import kotlin.math.sin
