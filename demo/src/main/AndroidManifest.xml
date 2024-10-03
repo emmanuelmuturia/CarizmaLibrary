@@ -35,7 +35,6 @@ Copyright 2024 Carizma Library All Rights Reserved.
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.CarizmaLibrary">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
