@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "emmanuelmuturia.sonux"
+    namespace = "emmanuelmuturia.sonux.library"
     compileSdk = 34
 
     defaultConfig {

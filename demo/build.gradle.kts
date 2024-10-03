@@ -21,7 +21,7 @@ plugins {
 }
 
 android {
-    namespace = "emmanuelmuturia.sonux"
+    namespace = "emmanuelmuturia.sonux.demo"
     compileSdk = 34
 
     defaultConfig {
@@ -67,7 +67,7 @@ android {
 
 dependencies {
 
-    //implementation(dependencyNotation = project(path = ":library"))
+    implementation(dependencyNotation = project(path = ":library"))
 
     implementation(dependencyNotation = libs.androidx.core.ktx)
     implementation(dependencyNotation = libs.androidx.lifecycle.runtime.ktx)
