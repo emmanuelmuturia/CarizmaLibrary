@@ -19,5 +19,5 @@ Copyright 2024 Carizma Library All Rights Reserved.
 -->
 <resources>
 
-    <style name="Theme.CarizmaLibrary" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Sonux" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

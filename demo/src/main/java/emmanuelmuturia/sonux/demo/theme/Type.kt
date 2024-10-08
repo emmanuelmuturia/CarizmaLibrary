@@ -1,5 +1,5 @@
 /*
- * Sonux  Copyright (C) $YEAR  Emmanuel Muturia™
+ * Sonux  Copyright (C) 2024  Emmanuel Muturia™
  * This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
  * This is free software, and you are welcome to redistribute it
  * under certain conditions; type `show c' for details.
@@ -20,3 +20,37 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
+package emmanuelmuturia.sonux.demo.theme
+
+import androidx.compose.material3.Typography
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+
+// Set of Material typography styles to start with
+val Typography = Typography(
+    bodyLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    )
+    /* Other default text styles to override
+    titleLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 22.sp,
+        lineHeight = 28.sp,
+        letterSpacing = 0.sp
+    ),
+    labelSmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Medium,
+        fontSize = 11.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.5.sp
+    )
+    */
+)

@@ -1,5 +1,5 @@
 /*
- * Sonux  Copyright (C) $YEAR  Emmanuel Muturia™
+ * Sonux  Copyright (C) 2024  Emmanuel Muturia™
  * This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
  * This is free software, and you are welcome to redistribute it
  * under certain conditions; type `show c' for details.
@@ -20,3 +20,14 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
+package emmanuelmuturia.sonux.demo.theme
+
+import androidx.compose.ui.graphics.Color
+
+val Purple80 = Color(0xFFD0BCFF)
+val PurpleGrey80 = Color(0xFFCCC2DC)
+val Pink80 = Color(0xFFEFB8C8)
+
+val Purple40 = Color(0xFF6650a4)
+val PurpleGrey40 = Color(0xFF625b71)
+val Pink40 = Color(0xFF7D5260)
