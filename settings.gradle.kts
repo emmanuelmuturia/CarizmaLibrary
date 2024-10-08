@@ -19,6 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CarizmaLibrary"
+rootProject.name = "Sonux"
+include(":demo")
+include(":library")
 include(":app")
-include(":carizmaLibrary")
