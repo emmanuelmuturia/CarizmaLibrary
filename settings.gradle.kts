@@ -1,3 +1,4 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
     repositories {
         google {
@@ -20,6 +21,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Sonux"
-include(":demo")
+include(":android")
 include(":library")
 include(":app")
+include(":commons")
