@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "emmanuelmuturia.sonux.demo-mergeReleaseResources-41:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "/home/emmanuelmuturia/.gradle/caches/transforms-4/47bae754b8f0668e7b2eee26280d4e1d/transformed/material3-release/res/values-v30/values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        }
+    ]
+}

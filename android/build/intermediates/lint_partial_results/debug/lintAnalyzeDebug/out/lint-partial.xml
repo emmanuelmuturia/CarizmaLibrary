@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.6.1" type="partial_results">
+    <map id="UnusedResources">
+        <location id="R.drawable.logo"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/drawable/logo.png"/>
+        <location id="R.raw.solo"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/raw/solo.mp3"/>
+        <location id="R.color.teal_700"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="25"
+            column="12"
+            startOffset="873"
+            endLine="25"
+            endColumn="27"
+            endOffset="888"/>
+        <location id="R.color.black"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="26"
+            column="12"
+            startOffset="918"
+            endLine="26"
+            endColumn="24"
+            endOffset="930"/>
+        <location id="R.color.white"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="27"
+            column="12"
+            startOffset="960"
+            endLine="27"
+            endColumn="24"
+            endOffset="972"/>
+        <location id="R.color.purple_700"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="23"
+            column="12"
+            startOffset="781"
+            endLine="23"
+            endColumn="29"
+            endOffset="798"/>
+        <location id="R.raw.monza"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/raw/monza.mp3"/>
+        <location id="R.color.purple_500"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="22"
+            column="12"
+            startOffset="734"
+            endLine="22"
+            endColumn="29"
+            endOffset="751"/>
+        <location id="R.color.purple_200"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="21"
+            column="12"
+            startOffset="687"
+            endLine="21"
+            endColumn="29"
+            endOffset="704"/>
+        <entry
+            name="model"
+            string="color[purple_200(D),purple_500(D),purple_700(D),teal_200(D),teal_700(D),black(D),white(D)],drawable[ic_launcher_background(U),ic_launcher_foreground(U),ic_launcher_foreground_1(R),logo(D)],mipmap[ic_launcher(U),ic_launcher_round(U)],raw[monza(D),orchestra(D),rock(U),solo(D)],string[app_name(U)],style[Theme_Sonux(U)],xml[data_extraction_rules(U),backup_rules(U)];8^9,b^7^8,c^7^8;;;"/>
+        <location id="R.color.teal_200"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="24"
+            column="12"
+            startOffset="828"
+            endLine="24"
+            endColumn="27"
+            endOffset="843"/>
+        <location id="R.raw.orchestra"
+            file="${:demo*debug*MAIN*sourceProvider*0*resDir*0}/raw/orchestra.mp3"/>
+    </map>
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="emmanuelmuturia.sonux.demo.activity.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+
+</incidents>

@@ -1,0 +1,46 @@
+emmanuelmuturia.sonux.demo-emoji2-1.3.0-0 /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/res
+emmanuelmuturia.sonux.demo-material-ripple-release-1 /home/emmanuelmuturia/.gradle/caches/transforms-4/1ea7c49b25aad583cb7c661e26e86e6f/transformed/material-ripple-release/res
+emmanuelmuturia.sonux.demo-ui-text-release-2 /home/emmanuelmuturia/.gradle/caches/transforms-4/25f67545c78b2fa1d2299a4480794d0f/transformed/ui-text-release/res
+emmanuelmuturia.sonux.demo-ui-unit-release-3 /home/emmanuelmuturia/.gradle/caches/transforms-4/2f13fbdb8ab03c65c44167a629bd7755/transformed/ui-unit-release/res
+emmanuelmuturia.sonux.demo-activity-ktx-1.9.2-4 /home/emmanuelmuturia/.gradle/caches/transforms-4/368625d8005bea50688fe6c4ef213839/transformed/activity-ktx-1.9.2/res
+emmanuelmuturia.sonux.demo-lifecycle-viewmodel-savedstate-2.8.6-5 /home/emmanuelmuturia/.gradle/caches/transforms-4/3de5d1eda56fc02f044574d161515cea/transformed/lifecycle-viewmodel-savedstate-2.8.6/res
+emmanuelmuturia.sonux.demo-lifecycle-runtime-compose-release-6 /home/emmanuelmuturia/.gradle/caches/transforms-4/3e80c02a4b332f0eef5d8af8201d4efd/transformed/lifecycle-runtime-compose-release/res
+emmanuelmuturia.sonux.demo-profileinstaller-1.3.1-7 /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/res
+emmanuelmuturia.sonux.demo-runtime-release-8 /home/emmanuelmuturia/.gradle/caches/transforms-4/422546850212b7aca8536e4e326f64df/transformed/runtime-release/res
+emmanuelmuturia.sonux.demo-material3-release-9 /home/emmanuelmuturia/.gradle/caches/transforms-4/47bae754b8f0668e7b2eee26280d4e1d/transformed/material3-release/res
+emmanuelmuturia.sonux.demo-ui-release-10 /home/emmanuelmuturia/.gradle/caches/transforms-4/48f3f0ffa9c95c3b4da8f6f7a52133b1/transformed/ui-release/res
+emmanuelmuturia.sonux.demo-animation-core-release-11 /home/emmanuelmuturia/.gradle/caches/transforms-4/49ca4085297f24ad81ae7cb6fc4ffe98/transformed/animation-core-release/res
+emmanuelmuturia.sonux.demo-lifecycle-process-2.8.6-12 /home/emmanuelmuturia/.gradle/caches/transforms-4/4ee6a412cacd78c86c2d93421a5c1985/transformed/lifecycle-process-2.8.6/res
+emmanuelmuturia.sonux.demo-lifecycle-livedata-core-2.8.6-13 /home/emmanuelmuturia/.gradle/caches/transforms-4/51d1e10ddfe8f3b8af17e4419f9dba54/transformed/lifecycle-livedata-core-2.8.6/res
+emmanuelmuturia.sonux.demo-customview-poolingcontainer-1.0.0-14 /home/emmanuelmuturia/.gradle/caches/transforms-4/555d29c573cdd70e37fae4d3e1570433/transformed/customview-poolingcontainer-1.0.0/res
+emmanuelmuturia.sonux.demo-ui-tooling-preview-release-15 /home/emmanuelmuturia/.gradle/caches/transforms-4/5c8a40e87ee287cfb90cc4f0bb4ac43d/transformed/ui-tooling-preview-release/res
+emmanuelmuturia.sonux.demo-foundation-layout-release-16 /home/emmanuelmuturia/.gradle/caches/transforms-4/64216714e5fd9877245b30d5a1e93a66/transformed/foundation-layout-release/res
+emmanuelmuturia.sonux.demo-startup-runtime-1.1.1-17 /home/emmanuelmuturia/.gradle/caches/transforms-4/64e204b43d8f2ed53bb38ee0f685bca9/transformed/startup-runtime-1.1.1/res
+emmanuelmuturia.sonux.demo-ui-geometry-release-18 /home/emmanuelmuturia/.gradle/caches/transforms-4/7120e6894b3d7a254884e4f4f12fcab6/transformed/ui-geometry-release/res
+emmanuelmuturia.sonux.demo-savedstate-ktx-1.2.1-19 /home/emmanuelmuturia/.gradle/caches/transforms-4/764a6cf608d2522740e4d64b7b6be67d/transformed/savedstate-ktx-1.2.1/res
+emmanuelmuturia.sonux.demo-lifecycle-viewmodel-release-20 /home/emmanuelmuturia/.gradle/caches/transforms-4/7bad6c313a1f5cc186cb29738c0b120a/transformed/lifecycle-viewmodel-release/res
+emmanuelmuturia.sonux.demo-foundation-release-21 /home/emmanuelmuturia/.gradle/caches/transforms-4/7bc2f960c53f242c37939757caf8fd12/transformed/foundation-release/res
+emmanuelmuturia.sonux.demo-lifecycle-viewmodel-ktx-2.8.6-22 /home/emmanuelmuturia/.gradle/caches/transforms-4/8523ac57c9e0f6454328c0f323cfbe6b/transformed/lifecycle-viewmodel-ktx-2.8.6/res
+emmanuelmuturia.sonux.demo-activity-1.9.2-23 /home/emmanuelmuturia/.gradle/caches/transforms-4/94dd7e01afa0078e237b70ea0eff23c7/transformed/activity-1.9.2/res
+emmanuelmuturia.sonux.demo-activity-compose-1.9.2-24 /home/emmanuelmuturia/.gradle/caches/transforms-4/9705c6c157ca586161eb19df24df97d7/transformed/activity-compose-1.9.2/res
+emmanuelmuturia.sonux.demo-savedstate-1.2.1-25 /home/emmanuelmuturia/.gradle/caches/transforms-4/97d89d120fa3ea3889cd96932f4fb665/transformed/savedstate-1.2.1/res
+emmanuelmuturia.sonux.demo-material-icons-core-release-26 /home/emmanuelmuturia/.gradle/caches/transforms-4/9a20bb06e42195c63da7c1a12b915fb3/transformed/material-icons-core-release/res
+emmanuelmuturia.sonux.demo-ui-util-release-27 /home/emmanuelmuturia/.gradle/caches/transforms-4/9be59e4108cd90be1df6764b24132fe1/transformed/ui-util-release/res
+emmanuelmuturia.sonux.demo-ui-graphics-release-28 /home/emmanuelmuturia/.gradle/caches/transforms-4/a93ed01245a938e1a660381c52990ea6/transformed/ui-graphics-release/res
+emmanuelmuturia.sonux.demo-media3-exoplayer-1.4.1-29 /home/emmanuelmuturia/.gradle/caches/transforms-4/c6cdf0fb3d18f8da14328af04da03b26/transformed/media3-exoplayer-1.4.1/res
+emmanuelmuturia.sonux.demo-lifecycle-runtime-release-30 /home/emmanuelmuturia/.gradle/caches/transforms-4/c7263163f8b10efdbdbf48c08b3184d3/transformed/lifecycle-runtime-release/res
+emmanuelmuturia.sonux.demo-core-ktx-1.13.1-31 /home/emmanuelmuturia/.gradle/caches/transforms-4/ce9e4ef33318192b535efe7384bfc4a3/transformed/core-ktx-1.13.1/res
+emmanuelmuturia.sonux.demo-annotation-experimental-1.4.1-32 /home/emmanuelmuturia/.gradle/caches/transforms-4/d26105b6f5530654f85583aab2a097c7/transformed/annotation-experimental-1.4.1/res
+emmanuelmuturia.sonux.demo-graphics-path-1.0.1-33 /home/emmanuelmuturia/.gradle/caches/transforms-4/dcde19fe66fca311c0af17db193b467d/transformed/graphics-path-1.0.1/res
+emmanuelmuturia.sonux.demo-lifecycle-runtime-ktx-release-34 /home/emmanuelmuturia/.gradle/caches/transforms-4/e908be0431ca9ee1ead79ff26805d1d8/transformed/lifecycle-runtime-ktx-release/res
+emmanuelmuturia.sonux.demo-core-runtime-2.2.0-35 /home/emmanuelmuturia/.gradle/caches/transforms-4/ec16238453de8992ff518471aa67e03c/transformed/core-runtime-2.2.0/res
+emmanuelmuturia.sonux.demo-core-1.13.1-36 /home/emmanuelmuturia/.gradle/caches/transforms-4/f5e3bbf30a425a137264147bb0e52bfa/transformed/core-1.13.1/res
+emmanuelmuturia.sonux.demo-animation-release-37 /home/emmanuelmuturia/.gradle/caches/transforms-4/f6411fc3b79238b26fae93670f16840c/transformed/animation-release/res
+emmanuelmuturia.sonux.demo-runtime-saveable-release-38 /home/emmanuelmuturia/.gradle/caches/transforms-4/f9125d4d7045e7d81c6e0be06b84176c/transformed/runtime-saveable-release/res
+emmanuelmuturia.sonux.demo-resValues-39 /home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/build/generated/res/resValues/release
+emmanuelmuturia.sonux.demo-packageReleaseResources-40 /home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+emmanuelmuturia.sonux.demo-packageReleaseResources-41 /home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+emmanuelmuturia.sonux.demo-release-42 /home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/build/intermediates/merged_res/release/mergeReleaseResources
+emmanuelmuturia.sonux.demo-main-43 /home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/res
+emmanuelmuturia.sonux.demo-release-44 /home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/release/res
+emmanuelmuturia.sonux.demo-release-45 /home/emmanuelmuturia/Android/Android Studio Projects/Sonux/library/build/intermediates/packaged_res/release/packageReleaseResources
