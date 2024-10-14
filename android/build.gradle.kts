@@ -67,6 +67,8 @@ android {
 
 dependencies {
 
+    implementation(dependencyNotation = projects.commons)
+
     implementation(dependencyNotation = project(path = ":library"))
 
     implementation(dependencyNotation = libs.androidx.core.ktx)
