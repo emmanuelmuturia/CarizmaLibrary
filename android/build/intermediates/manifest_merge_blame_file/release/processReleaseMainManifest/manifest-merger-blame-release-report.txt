@@ -1,0 +1,152 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3Copyright 2024 Sonux All Rights Reserved.
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8
+9          http://www.apache.org/licenses/LICENSE-2.0
+10
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="emmanuelmuturia.sonux"
+19    android:versionCode="1"
+20    android:versionName="1.0" >
+21
+22    <uses-sdk
+23        android:minSdkVersion="24"
+24        android:targetSdkVersion="34" />
+25
+26    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+26-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:23:5-79
+26-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:23:22-77
+27    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+27-->[androidx.media3:media3-common:1.4.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/4f52549ef5c2d8caf3fcf1abf9dc88b5/transformed/media3-common-1.4.1/AndroidManifest.xml:22:5-79
+27-->[androidx.media3:media3-common:1.4.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/4f52549ef5c2d8caf3fcf1abf9dc88b5/transformed/media3-common-1.4.1/AndroidManifest.xml:22:22-76
+28
+29    <permission
+29-->[androidx.core:core:1.13.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/f5e3bbf30a425a137264147bb0e52bfa/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+30        android:name="emmanuelmuturia.sonux.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+30-->[androidx.core:core:1.13.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/f5e3bbf30a425a137264147bb0e52bfa/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+31        android:protectionLevel="signature" />
+31-->[androidx.core:core:1.13.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/f5e3bbf30a425a137264147bb0e52bfa/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+32
+33    <uses-permission android:name="emmanuelmuturia.sonux.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+33-->[androidx.core:core:1.13.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/f5e3bbf30a425a137264147bb0e52bfa/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+33-->[androidx.core:core:1.13.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/f5e3bbf30a425a137264147bb0e52bfa/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+34
+35    <application
+35-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:25:5-45:19
+36        android:allowBackup="true"
+36-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:26:9-35
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.13.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/f5e3bbf30a425a137264147bb0e52bfa/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+38        android:dataExtractionRules="@xml/data_extraction_rules"
+38-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:27:9-65
+39        android:extractNativeLibs="false"
+40        android:fullBackupContent="@xml/backup_rules"
+40-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:28:9-54
+41        android:icon="@mipmap/ic_launcher"
+41-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:29:9-43
+42        android:label="@string/app_name"
+42-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:30:9-41
+43        android:roundIcon="@mipmap/ic_launcher_round"
+43-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:31:9-54
+44        android:supportsRtl="true"
+44-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:32:9-35
+45        android:theme="@style/Theme.Sonux" >
+45-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:33:9-43
+46        <activity
+46-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:35:9-44:20
+47            android:name="emmanuelmuturia.sonux.demo.activity.MainActivity"
+47-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:36:13-50
+48            android:exported="true"
+48-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:37:13-36
+49            android:theme="@style/Theme.Sonux" >
+49-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:38:13-47
+50            <intent-filter>
+50-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:39:13-43:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:40:17-69
+51-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:40:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:42:17-77
+53-->/home/emmanuelmuturia/Android/Android Studio Projects/Sonux/demo/src/main/AndroidManifest.xml:42:27-74
+54            </intent-filter>
+55        </activity>
+56
+57        <provider
+57-->[androidx.emoji2:emoji2:1.3.0] /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+58            android:name="androidx.startup.InitializationProvider"
+58-->[androidx.emoji2:emoji2:1.3.0] /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+59            android:authorities="emmanuelmuturia.sonux.androidx-startup"
+59-->[androidx.emoji2:emoji2:1.3.0] /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+60            android:exported="false" >
+60-->[androidx.emoji2:emoji2:1.3.0] /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+61            <meta-data
+61-->[androidx.emoji2:emoji2:1.3.0] /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+62-->[androidx.emoji2:emoji2:1.3.0] /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+63                android:value="androidx.startup" />
+63-->[androidx.emoji2:emoji2:1.3.0] /home/emmanuelmuturia/.gradle/caches/transforms-4/143b1e64b1e2dec74e01bca78fee29e2/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+64            <meta-data
+64-->[androidx.lifecycle:lifecycle-process:2.8.6] /home/emmanuelmuturia/.gradle/caches/transforms-4/4ee6a412cacd78c86c2d93421a5c1985/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+65-->[androidx.lifecycle:lifecycle-process:2.8.6] /home/emmanuelmuturia/.gradle/caches/transforms-4/4ee6a412cacd78c86c2d93421a5c1985/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:30:17-78
+66                android:value="androidx.startup" />
+66-->[androidx.lifecycle:lifecycle-process:2.8.6] /home/emmanuelmuturia/.gradle/caches/transforms-4/4ee6a412cacd78c86c2d93421a5c1985/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+68-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+69                android:value="androidx.startup" />
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+70        </provider>
+71
+72        <receiver
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+73            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+74            android:directBootAware="false"
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+75            android:enabled="true"
+75-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+76            android:exported="true"
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+77            android:permission="android.permission.DUMP" >
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+78            <intent-filter>
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+79                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+80            </intent-filter>
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+82                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+85                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+88                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/emmanuelmuturia/.gradle/caches/transforms-4/41ddd19c8fc774c4bd4e0e035ff81984/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+89            </intent-filter>
+90        </receiver>
+91    </application>
+92
+93</manifest>
