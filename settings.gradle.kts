@@ -22,6 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sonux"
 include(":android")
-include(":library")
-include(":app")
 include(":commons")

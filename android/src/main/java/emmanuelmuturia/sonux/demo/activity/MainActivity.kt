@@ -48,7 +48,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import emmanuelmuturia.sonux.demo.R
 import emmanuelmuturia.sonux.demo.theme.SonuxTheme
-import emmanuelmuturia.sonux.library.extensions.to8D
+import emmanuelmuturia.sonux.demo.extensions.to8D
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
