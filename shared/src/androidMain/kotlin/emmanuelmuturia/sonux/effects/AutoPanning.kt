@@ -23,11 +23,11 @@
 package emmanuelmuturia.sonux.effects
 
 import android.media.MediaPlayer
+import kotlin.math.sin
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
-import kotlin.math.sin
 
 /**
  * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
