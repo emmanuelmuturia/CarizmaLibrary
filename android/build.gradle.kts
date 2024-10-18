@@ -69,8 +69,6 @@ dependencies {
 
     implementation(dependencyNotation = projects.commons)
 
-    implementation(dependencyNotation = project(path = ":library"))
-
     implementation(dependencyNotation = libs.androidx.core.ktx)
     implementation(dependencyNotation = libs.androidx.lifecycle.runtime.ktx)
     implementation(dependencyNotation = libs.androidx.activity.compose)

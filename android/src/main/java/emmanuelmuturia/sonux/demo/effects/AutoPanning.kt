@@ -20,7 +20,7 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
-package emmanuelmuturia.sonux.library.effects
+package emmanuelmuturia.sonux.demo.effects
 
 import android.media.MediaPlayer
 import kotlin.math.sin
