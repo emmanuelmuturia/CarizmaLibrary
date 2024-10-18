@@ -20,36 +20,40 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
-package emmanuelmuturia.sonux.demo.effects
+package emmanuelmuturia.sonux.extensions
 
 import android.media.MediaPlayer
-import android.media.audiofx.EnvironmentalReverb
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
+import emmanuelmuturia.sonux.effects.applyAutoPanning
+import emmanuelmuturia.sonux.effects.applyReverb
+import kotlinx.coroutines.Dispatchers
 
 /**
- * This is the Reverb Effect that creates the illusion of sound occurring in a specific space...
- * @param mediaPlayer This is the [MediaPlayer] class that will be declared and used (Singleton Pattern) to control the audio and the Audio Effects...
- * @param coroutineDispatcher This represents a [CoroutineDispatcher] instance that specifies on which Thread the Coroutine(s) will run on...
+ * These are the public-facing Extension Functions that trigger the respective Audio Effects...
  */
 
-internal suspend fun applyReverb(
+/**
+ * This function combines [applyAutoPanning] and [applyReverb] to create an 8D Audio Effect...
+ * @param mediaPlayer This is the [MediaPlayer] class that will be declared and used (Singleton Pattern) to control the audio and the Audio Effects...
+ * @param frequency This is the Frequency of the Auto Panning Effect and it controls the speed in which the audio pans to both Left and Right...
+ * @param amount This is used to control how far the audio moves between channels...
+ */
+
+suspend fun MediaPlayer.to8D(
     mediaPlayer: MediaPlayer,
-    coroutineDispatcher: CoroutineDispatcher
+    frequency: Float = 0.08f,
+    amount: Float = 85f
 ) {
-    withContext(context = coroutineDispatcher) {
-        EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
-            enabled = true
-            roomLevel = 0 // This is the maximum room size based on a 100% Room Scale...
-            roomHFLevel = -4500 // This is 50% HF Damping...
-            decayTime = 10000 // This is 50% Reverberance (Decay Time in Milliseconds)...
-            decayHFRatio = 1000 // This is the balanced Decay for Low and High Frequencies...
-            reflectionsLevel = -2000 // This is a moderately early Reflection Level...
-            reflectionsDelay = 0 // This is a 0 ms Pre-Delay...
-            reverbLevel = 0 // This is a Wet Gain (Maximum Reverb Intensity)...
-            reverbDelay = 0 // This is a 0 ms Delay before Reverberation starts...
-            diffusion = 1000 // This is Maximum Stereo Depth (100%)...
-            density = 1000 // Maximum Density (100%)
-        }
+    val coroutineDispatcher = Dispatchers.Default
+
+    applyReverb(mediaPlayer = mediaPlayer, coroutineDispatcher = coroutineDispatcher)
+    mediaPlayer.start()
+    applyAutoPanning(
+        mediaPlayer = mediaPlayer,
+        frequency = frequency,
+        amount = amount,
+        coroutineDispatcher = coroutineDispatcher
+    )
+    mediaPlayer.setOnCompletionListener {
+        mediaPlayer.release()
     }
 }

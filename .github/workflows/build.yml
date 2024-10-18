@@ -1,4 +1,4 @@
-name: Sonux CI
+name: Sonux
 
 on:
   push:

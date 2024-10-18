@@ -3,10 +3,10 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.compose.compiler)
+    alias(notation = libs.plugins.kotlinMultiplatform)
+    alias(notation = libs.plugins.androidApplication)
+    alias(notation = libs.plugins.jetbrainsCompose)
+    alias(notation = libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -16,30 +16,30 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
-    jvm("desktop")
-    
+
+    jvm(name = "desktop")
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
+            implementation(dependencyNotation = compose.preview)
+            implementation(dependencyNotation = libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(projects.shared)
+            implementation(dependencyNotation = compose.runtime)
+            implementation(dependencyNotation = compose.foundation)
+            implementation(dependencyNotation = compose.material)
+            implementation(dependencyNotation = compose.ui)
+            implementation(dependencyNotation = compose.components.resources)
+            implementation(dependencyNotation = compose.components.uiToolingPreview)
+            implementation(dependencyNotation = libs.androidx.lifecycle.viewmodel)
+            implementation(dependencyNotation = libs.androidx.lifecycle.runtime.compose)
+            implementation(dependencyNotation = projects.shared)
         }
         desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.kotlinx.coroutines.swing)
+            implementation(dependencyNotation = compose.desktop.currentOs)
+            implementation(dependencyNotation = libs.kotlinx.coroutines.swing)
         }
     }
 }
@@ -53,7 +53,7 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
     }
     packaging {
         resources {
@@ -72,7 +72,7 @@ android {
 }
 
 dependencies {
-    debugImplementation(compose.uiTooling)
+    debugImplementation(dependencyNotation = compose.uiTooling)
 }
 
 compose.desktop {
@@ -80,7 +80,7 @@ compose.desktop {
         mainClass = "emmanuelmuturia.sonux.MainKt"
 
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            targetFormats(formats = arrayOf(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb))
             packageName = "emmanuelmuturia.sonux"
             packageVersion = "1.0.0"
         }
