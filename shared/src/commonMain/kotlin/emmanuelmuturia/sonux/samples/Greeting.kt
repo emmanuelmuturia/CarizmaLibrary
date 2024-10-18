@@ -1,4 +1,4 @@
-package emmanuelmuturia.sonux
+package emmanuelmuturia.sonux.samples
 
 class Greeting {
     private val platform = getPlatform()

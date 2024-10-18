@@ -1,4 +1,4 @@
-package emmanuelmuturia.sonux
+package emmanuelmuturia.sonux.samples
 
 interface Platform {
     val name: String

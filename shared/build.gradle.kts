@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
+    alias(notation = libs.plugins.kotlinMultiplatform)
+    alias(notation = libs.plugins.androidLibrary)
 }
 
 kotlin {
@@ -13,12 +13,16 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     jvm()
-    
+
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
+        }
+        androidMain.dependencies {
+            // I might remove this later...
+            implementation(dependencyNotation = libs.kotlin.coroutines)
         }
     }
 }

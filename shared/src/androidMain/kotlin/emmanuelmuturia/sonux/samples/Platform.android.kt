@@ -1,4 +1,4 @@
-package emmanuelmuturia.sonux
+package emmanuelmuturia.sonux.samples
 
 import android.os.Build
 
