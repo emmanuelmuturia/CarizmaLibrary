@@ -1,13 +1,15 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    alias(notation = libs.plugins.android.application) apply false
-    alias(notation = libs.plugins.kotlin.android) apply false
-    alias(notation = libs.plugins.kotlin.multiplatform) apply false
+    // this is necessary to avoid the plugins to be loaded multiple times
+    // in each subproject's classloader
+    alias(notation = libs.plugins.androidApplication) apply false
+    alias(notation = libs.plugins.androidLibrary) apply false
+    alias(notation = libs.plugins.jetbrainsCompose) apply false
     alias(notation = libs.plugins.compose.compiler) apply false
-    alias(notation = libs.plugins.android.library) apply false
+    alias(notation = libs.plugins.kotlinJvm) apply false
+    alias(notation = libs.plugins.kotlinMultiplatform) apply false
     alias(notation = libs.plugins.ktlint)
     alias(notation = libs.plugins.detekt)
-    alias(notation = libs.plugins.spotless) apply false
+    alias(notation = libs.plugins.spotless)
 }
 
 subprojects {
