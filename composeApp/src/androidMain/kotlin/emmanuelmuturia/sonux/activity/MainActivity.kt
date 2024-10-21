@@ -28,13 +28,13 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import emmanuelmuturia.sonux.app.App
-import emmanuelmuturia.sonux.ui.theme.SonuxTheme
+import emmanuelmuturia.sonux.theme.SonuxAndroidTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SonuxTheme {
+            SonuxAndroidTheme {
                 App()
             }
         }
