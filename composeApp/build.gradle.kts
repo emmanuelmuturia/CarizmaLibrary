@@ -25,17 +25,19 @@ kotlin {
         androidMain.dependencies {
             implementation(dependencyNotation = compose.preview)
             implementation(dependencyNotation = libs.androidx.activity.compose)
+            implementation(dependencyNotation = libs.material3)
+            implementation(dependencyNotation = projects.shared)
         }
         commonMain.dependencies {
             implementation(dependencyNotation = compose.runtime)
             implementation(dependencyNotation = compose.foundation)
-            implementation(dependencyNotation = compose.material)
             implementation(dependencyNotation = compose.ui)
             implementation(dependencyNotation = compose.components.resources)
             implementation(dependencyNotation = compose.components.uiToolingPreview)
             implementation(dependencyNotation = libs.androidx.lifecycle.viewmodel)
             implementation(dependencyNotation = libs.androidx.lifecycle.runtime.compose)
             implementation(dependencyNotation = projects.shared)
+            implementation(dependencyNotation = libs.material3)
         }
         desktopMain.dependencies {
             implementation(dependencyNotation = compose.desktop.currentOs)

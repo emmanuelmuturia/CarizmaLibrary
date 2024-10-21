@@ -20,17 +20,8 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
-package emmanuelmuturia.sonux
+package emmanuelmuturia.sonux.ui.typography
 
-import androidx.compose.ui.window.Window
-import androidx.compose.ui.window.application
-import emmanuelmuturia.sonux.app.App
+import androidx.compose.material3.Typography
 
-fun main() = application {
-    Window(
-        onCloseRequest = ::exitApplication,
-        title = "Sonux"
-    ) {
-        App()
-    }
-}
+val sonuxTypography = Typography()
