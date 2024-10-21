@@ -71,6 +71,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    dependencies {
+        androidTestImplementation(dependencyNotation = libs.androidx.compose.ui.test.junit4)
+        androidTestImplementation(dependencyNotation = libs.androidx.compose.ui.test.manifest)
+    }
 }
 
 dependencies {
