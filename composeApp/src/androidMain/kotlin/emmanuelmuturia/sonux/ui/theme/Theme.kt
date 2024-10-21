@@ -1,5 +1,26 @@
+/*
+ * Sonux  Copyright (C) 2024  Emmanuel Muturia™
+ * This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+ * This is free software, and you are welcome to redistribute it
+ * under certain conditions; type `show c' for details.
+ *
+ * The hypothetical commands `show w' and `show c' should show the appropriate
+ * parts of the General Public License.  Of course, your program's commands
+ * might be different; for a GUI interface, you would use an "about box".
+ *
+ * You should also get your employer (if you work as a programmer) or school,
+ * if any, to sign a "copyright disclaimer" for the program, if necessary.
+ * For more information on this, and how to apply and follow the GNU GPL, see
+ * <https://www.gnu.org/licenses/>.
+ *
+ * The GNU General Public License does not permit incorporating your program
+ * into proprietary programs.  If your program is a subroutine library, you
+ * may consider it more useful to permit linking proprietary applications with
+ * the library.  If this is what you want to do, use the GNU Lesser General
+ * Public License instead of this License.  But first, please read
+ * <https://www.gnu.org/licenses/why-not-lgpl.html>.
+*/
 package emmanuelmuturia.sonux.ui.theme
-
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -9,12 +30,11 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import emmanuelmuturia.sonux.ui.colour.backgroundDark
 import emmanuelmuturia.sonux.ui.colour.backgroundLight
 import emmanuelmuturia.sonux.ui.colour.errorContainerDark
+import emmanuelmuturia.sonux.ui.colour.errorContainerLight
 import emmanuelmuturia.sonux.ui.colour.errorDark
 import emmanuelmuturia.sonux.ui.colour.errorLight
 import emmanuelmuturia.sonux.ui.colour.inverseOnSurfaceDark
@@ -26,12 +46,17 @@ import emmanuelmuturia.sonux.ui.colour.inverseSurfaceLight
 import emmanuelmuturia.sonux.ui.colour.onBackgroundDark
 import emmanuelmuturia.sonux.ui.colour.onBackgroundLight
 import emmanuelmuturia.sonux.ui.colour.onErrorContainerDark
+import emmanuelmuturia.sonux.ui.colour.onErrorContainerLight
 import emmanuelmuturia.sonux.ui.colour.onErrorDark
 import emmanuelmuturia.sonux.ui.colour.onErrorLight
 import emmanuelmuturia.sonux.ui.colour.onPrimaryContainerDark
+import emmanuelmuturia.sonux.ui.colour.onPrimaryContainerLight
 import emmanuelmuturia.sonux.ui.colour.onPrimaryDark
+import emmanuelmuturia.sonux.ui.colour.onPrimaryLight
 import emmanuelmuturia.sonux.ui.colour.onSecondaryContainerDark
+import emmanuelmuturia.sonux.ui.colour.onSecondaryContainerLight
 import emmanuelmuturia.sonux.ui.colour.onSecondaryDark
+import emmanuelmuturia.sonux.ui.colour.onSecondaryLight
 import emmanuelmuturia.sonux.ui.colour.onSurfaceDark
 import emmanuelmuturia.sonux.ui.colour.onSurfaceLight
 import emmanuelmuturia.sonux.ui.colour.onSurfaceVariantDark
@@ -45,6 +70,7 @@ import emmanuelmuturia.sonux.ui.colour.outlineLight
 import emmanuelmuturia.sonux.ui.colour.outlineVariantDark
 import emmanuelmuturia.sonux.ui.colour.outlineVariantLight
 import emmanuelmuturia.sonux.ui.colour.primaryContainerDark
+import emmanuelmuturia.sonux.ui.colour.primaryContainerLight
 import emmanuelmuturia.sonux.ui.colour.primaryDark
 import emmanuelmuturia.sonux.ui.colour.primaryLight
 import emmanuelmuturia.sonux.ui.colour.scrimDark
@@ -52,6 +78,7 @@ import emmanuelmuturia.sonux.ui.colour.scrimLight
 import emmanuelmuturia.sonux.ui.colour.secondaryContainerDark
 import emmanuelmuturia.sonux.ui.colour.secondaryContainerLight
 import emmanuelmuturia.sonux.ui.colour.secondaryDark
+import emmanuelmuturia.sonux.ui.colour.secondaryLight
 import emmanuelmuturia.sonux.ui.colour.surfaceBrightDark
 import emmanuelmuturia.sonux.ui.colour.surfaceBrightLight
 import emmanuelmuturia.sonux.ui.colour.surfaceContainerDark
@@ -73,15 +100,7 @@ import emmanuelmuturia.sonux.ui.colour.surfaceVariantLight
 import emmanuelmuturia.sonux.ui.colour.tertiaryContainerDark
 import emmanuelmuturia.sonux.ui.colour.tertiaryContainerLight
 import emmanuelmuturia.sonux.ui.colour.tertiaryDark
-import emmanuelmuturia.sonux.ui.colour.onPrimaryLight
-import emmanuelmuturia.sonux.ui.colour.primaryContainerLight
-import emmanuelmuturia.sonux.ui.colour.onPrimaryContainerLight
-import emmanuelmuturia.sonux.ui.colour.secondaryLight
-import emmanuelmuturia.sonux.ui.colour.onSecondaryLight
-import emmanuelmuturia.sonux.ui.colour.onSecondaryContainerLight
 import emmanuelmuturia.sonux.ui.colour.tertiaryLight
-import emmanuelmuturia.sonux.ui.colour.errorContainerLight
-import emmanuelmuturia.sonux.ui.colour.onErrorContainerLight
 import emmanuelmuturia.sonux.ui.typography.sonuxTypography
 
 private val lightScheme = lightColorScheme(
@@ -119,7 +138,7 @@ private val lightScheme = lightColorScheme(
     surfaceContainerLow = surfaceContainerLowLight,
     surfaceContainer = surfaceContainerLight,
     surfaceContainerHigh = surfaceContainerHighLight,
-    surfaceContainerHighest = surfaceContainerHighestLight,
+    surfaceContainerHighest = surfaceContainerHighestLight
 )
 
 private val darkScheme = darkColorScheme(
@@ -157,7 +176,7 @@ private val darkScheme = darkColorScheme(
     surfaceContainerLow = surfaceContainerLowDark,
     surfaceContainer = surfaceContainerDark,
     surfaceContainerHigh = surfaceContainerHighDark,
-    surfaceContainerHighest = surfaceContainerHighestDark,
+    surfaceContainerHighest = surfaceContainerHighestDark
 )
 
 @Composable
@@ -165,7 +184,7 @@ fun SonuxTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
