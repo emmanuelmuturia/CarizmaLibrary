@@ -20,7 +20,7 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
-package emmanuelmuturia.sonux
+package emmanuelmuturia.sonux.app
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image

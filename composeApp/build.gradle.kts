@@ -25,6 +25,7 @@ kotlin {
         androidMain.dependencies {
             implementation(dependencyNotation = compose.preview)
             implementation(dependencyNotation = libs.androidx.activity.compose)
+            implementation(dependencyNotation = libs.material3)
         }
         commonMain.dependencies {
             implementation(dependencyNotation = compose.runtime)
