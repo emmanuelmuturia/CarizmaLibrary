@@ -50,44 +50,48 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.screen.Screen
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_confirmation_screen
 import sonux.composeapp.generated.resources.light_confirmation_screen
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun ConfirmationScreen() {
-    Scaffold(
-        modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text(
-                        text = "Confirmation",
-                        style = MaterialTheme.typography.headlineLarge,
-                        fontWeight = FontWeight.ExtraBold,
-                        color = MaterialTheme.colorScheme.onBackground
-                    )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
-                ),
-                navigationIcon = {
-                    IconButton(onClick = {
-                        // Navigate back...
-                    }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
-                            contentDescription = "Navigate Back Icon",
-                            tint = MaterialTheme.colorScheme.onBackground
+class ConfirmationScreen : Screen {
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    override fun Content() {
+        Scaffold(
+            modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
+            topBar = {
+                CenterAlignedTopAppBar(
+                    title = {
+                        Text(
+                            text = "Confirmation",
+                            style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = MaterialTheme.colorScheme.onBackground
                         )
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.background
+                    ),
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            // Navigate back...
+                        }) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                                contentDescription = "Navigate Back Icon",
+                                tint = MaterialTheme.colorScheme.onBackground
+                            )
+                        }
                     }
-                }
-            )
+                )
+            }
+        ) { paddingValues ->
+            ConfirmationScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
         }
-    ) { paddingValues ->
-        ConfirmationScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
     }
 }
 
