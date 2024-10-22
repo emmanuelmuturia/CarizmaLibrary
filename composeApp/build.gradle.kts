@@ -39,6 +39,9 @@ kotlin {
             implementation(dependencyNotation = libs.androidx.lifecycle.runtime.compose)
             implementation(dependencyNotation = projects.shared)
             implementation(dependencyNotation = compose.material3)
+            implementation(dependencyNotation = libs.voyager.navigator)
+            implementation(dependencyNotation = libs.voyager.tabNavigator)
+            implementation(dependencyNotation = libs.voyager.transitions)
         }
         commonTest.dependencies {
             implementation(dependencyNotation = libs.kotlin.test)
