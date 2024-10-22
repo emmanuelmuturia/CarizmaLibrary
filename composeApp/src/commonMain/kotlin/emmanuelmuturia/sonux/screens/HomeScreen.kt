@@ -22,9 +22,13 @@
 */
 package emmanuelmuturia.sonux.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -32,7 +36,6 @@ import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -46,6 +49,10 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.resources.painterResource
+import sonux.composeapp.generated.resources.Res
+import sonux.composeapp.generated.resources.dark_home_screen
+import sonux.composeapp.generated.resources.light_home_screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -83,7 +90,7 @@ internal fun HomeScreenContent(modifier: Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item(key = "HomeScreenAnimation") {
-            HomeScreenAnimation()
+            HomeScreenImage()
         }
 
         item(key = "HomeScreenText") {
@@ -93,7 +100,13 @@ internal fun HomeScreenContent(modifier: Modifier) {
 }
 
 @Composable
-internal fun HomeScreenAnimation() {
+internal fun HomeScreenImage() {
+    Image(
+        painter = painterResource(resource = if (isSystemInDarkTheme()) Res.drawable.dark_home_screen else Res.drawable.light_home_screen),
+        contentDescription = "Home Screen Image"
+    )
+
+    Spacer(modifier = Modifier.height(height = 21.dp))
 }
 
 @Composable

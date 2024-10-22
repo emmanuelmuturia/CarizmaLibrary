@@ -24,6 +24,7 @@ package emmanuelmuturia.sonux.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -50,7 +51,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
+import sonux.composeapp.generated.resources.dark_results_screen
 import sonux.composeapp.generated.resources.green_checkmark
+import sonux.composeapp.generated.resources.light_results_screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -96,6 +99,12 @@ internal fun ResultsScreenContent(modifier: Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item(
+            key = "ResultsScreenImage"
+        ) {
+            ResultsScreenImage()
+        }
+
+        item(
             key = "ResultsConfirmationText"
         ) {
             ResultsConfirmationText()
@@ -116,22 +125,21 @@ internal fun ResultsScreenContent(modifier: Modifier) {
 }
 
 @Composable
-internal fun ResultsConfirmationText() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
-    ) {
-        Image(
-            painter = painterResource(resource = Res.drawable.green_checkmark),
-            contentDescription = "Success Checkmark"
-        )
+fun ResultsScreenImage() {
+    Image(
+        painter = painterResource(resource = if (isSystemInDarkTheme()) Res.drawable.dark_results_screen else Res.drawable.light_results_screen),
+        contentDescription = "Results Screen Image"
+    )
 
-        Text(
-            text = "Your audio file was successfully converted to 8D :)",
-            style = MaterialTheme.typography.titleMedium
-        )
-    }
+    Spacer(modifier = Modifier.height(height = 7.dp))
+}
+
+@Composable
+internal fun ResultsConfirmationText() {
+    Text(
+        text = "Your audio file was successfully converted to 8D :)",
+        style = MaterialTheme.typography.titleMedium
+    )
 
     Spacer(modifier = Modifier.height(height = 7.dp))
 }
