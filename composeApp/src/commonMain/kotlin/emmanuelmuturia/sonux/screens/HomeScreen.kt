@@ -49,36 +49,43 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_home_screen
 import sonux.composeapp.generated.resources.light_home_screen
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun HomeScreen() {
-    Scaffold(
-        modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text(
-                        text = "Sonux",
-                        style = MaterialTheme.typography.headlineLarge,
-                        fontWeight = FontWeight.ExtraBold,
-                        color = MaterialTheme.colorScheme.onBackground
+class HomeScreen : Screen {
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    override fun Content() {
+        Scaffold(
+            modifier = Modifier.fillMaxSize().background(
+                color = MaterialTheme.colorScheme.background
+            ),
+            topBar = {
+                CenterAlignedTopAppBar(
+                    title = {
+                        Text(
+                            text = "Sonux",
+                            style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = MaterialTheme.colorScheme.onBackground
+                        )
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.background
                     )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
                 )
-            )
-        },
-        floatingActionButton = {
-            HomeScreenButton()
+            },
+            floatingActionButton = {
+                HomeScreenButton()
+            }
+        ) { paddingValues ->
+            HomeScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
         }
-    ) { paddingValues ->
-        HomeScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
     }
 }
 
@@ -129,8 +136,10 @@ internal fun HomeScreenText() {
 
 @Composable
 internal fun HomeScreenButton() {
+    val navigator = LocalNavigator.current
     ExtendedFloatingActionButton(onClick = {
-        // Select the audio file...
+        // Select the audio file and once it is complete navigate to the next screen...
+        navigator?.push(item = ConfirmationScreen())
     }, containerColor = MaterialTheme.colorScheme.primary) {
         Icon(
             imageVector = Icons.Rounded.Add,

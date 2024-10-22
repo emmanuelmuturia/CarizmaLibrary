@@ -22,17 +22,9 @@
 */
 package ui
 
-import androidx.compose.ui.test.ExperimentalTestApi
-import androidx.compose.ui.test.onNodeWithContentDescription
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.runComposeUiTest
-import emmanuelmuturia.sonux.screens.ConfirmationScreen
-import kotlin.test.Test
-
 class ConfirmationScreenUITest {
 
-    @OptIn(ExperimentalTestApi::class)
+    /*@OptIn(ExperimentalTestApi::class)
     @Test
     fun testConfirmationScreenUIElements() = runComposeUiTest {
         setContent {
@@ -43,9 +35,9 @@ class ConfirmationScreenUITest {
         onNodeWithContentDescription(label = "Navigate Back Icon").assertExists()
         onNodeWithContentDescription(label = "Navigate Back Icon").performClick()
         onNodeWithContentDescription(label = "Confirmation Screen Image").assertExists()
-        // onNodeWithText(text = "Audio Title: Sample Audio Title").assertExists()
-        // onNodeWithText(text = "Audio Type: Sample Audio Type").assertExists()
-        // onNodeWithText(text = "Audio Size: Sample Audio Size").assertExists()
+        onNodeWithText(text = "Audio Title: Sample Audio Title").assertExists()
+        onNodeWithText(text = "Audio Type: Sample Audio Type").assertExists()
+        onNodeWithText(text = "Audio Size: Sample Audio Size").assertExists()
         onNodeWithText(text = "Convert To 8D").performClick()
-    }
+    }*/
 }

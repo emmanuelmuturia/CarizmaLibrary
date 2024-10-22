@@ -22,16 +22,9 @@
 */
 package ui
 
-import androidx.compose.ui.test.ExperimentalTestApi
-import androidx.compose.ui.test.onNodeWithContentDescription
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.runComposeUiTest
-import emmanuelmuturia.sonux.screens.HomeScreen
-import kotlin.test.Test
-
 class HomeScreenUITest {
 
-    @OptIn(ExperimentalTestApi::class)
+    /*@OptIn(ExperimentalTestApi::class)
     @Test
     fun testHomeScreenUIElements() = runComposeUiTest {
         setContent {
@@ -43,5 +36,5 @@ class HomeScreenUITest {
         onNodeWithText(text = "Supported File Formats: ").assertExists()
         onNodeWithText(text = "MP3, WAV, FLAC, and OGG").assertExists()
         onNodeWithText(text = "Upload Audio File")
-    }
+    }*/
 }

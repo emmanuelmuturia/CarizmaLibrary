@@ -48,44 +48,52 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_results_screen
 import sonux.composeapp.generated.resources.light_results_screen
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun ResultsScreen() {
-    Scaffold(
-        modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text(
-                        text = "Results",
-                        style = MaterialTheme.typography.headlineLarge,
-                        fontWeight = FontWeight.ExtraBold,
-                        color = MaterialTheme.colorScheme.onBackground
-                    )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
-                ),
-                navigationIcon = {
-                    IconButton(onClick = {
-                        // Navigate back...
-                    }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
-                            contentDescription = "Navigate Back Icon",
-                            tint = MaterialTheme.colorScheme.onBackground
+class ResultsScreen : Screen {
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    override fun Content() {
+        val navigator = LocalNavigator.current
+        Scaffold(
+            modifier = Modifier.fillMaxSize().background(
+                color = MaterialTheme.colorScheme.background
+            ),
+            topBar = {
+                CenterAlignedTopAppBar(
+                    title = {
+                        Text(
+                            text = "Results",
+                            style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = MaterialTheme.colorScheme.onBackground
                         )
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.background
+                    ),
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            navigator?.pop()
+                        }) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                                contentDescription = "Navigate Back Icon",
+                                tint = MaterialTheme.colorScheme.onBackground
+                            )
+                        }
                     }
-                }
-            )
+                )
+            }
+        ) { paddingValues ->
+            ResultsScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
         }
-    ) { paddingValues ->
-        ResultsScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
     }
 }
 
@@ -161,8 +169,11 @@ internal fun DownloadButton() {
 
 @Composable
 internal fun NavigateToScreenButton() {
+    val navigator = LocalNavigator.current
     Button(onClick = {
+        // Clear anything that needs to be cleared...
         // Navigate to the Home Screen...
+        navigator?.popAll()
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
         Text(text = "Convert Another Audio File", style = MaterialTheme.typography.labelLarge)
     }
