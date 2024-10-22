@@ -22,10 +22,13 @@
 */
 package emmanuelmuturia.sonux.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -45,6 +48,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.resources.painterResource
+import sonux.composeapp.generated.resources.Res
+import sonux.composeapp.generated.resources.dark_results_screen
+import sonux.composeapp.generated.resources.light_results_screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -85,10 +92,16 @@ fun ResultsScreen() {
 @Composable
 internal fun ResultsScreenContent(modifier: Modifier) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(all = 7.dp),
+        modifier = modifier.fillMaxSize().padding(all = 7.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        item(
+            key = "ResultsScreenImage"
+        ) {
+            ResultsScreenImage()
+        }
+
         item(
             key = "ResultsConfirmationText"
         ) {
@@ -110,22 +123,29 @@ internal fun ResultsScreenContent(modifier: Modifier) {
 }
 
 @Composable
-internal fun ResultsConfirmationText() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
-    ) {
-        /*Image(
-            painter = painterResource(id = R.drawable.green_checkmark),
-            contentDescription = "Success Checkmark"
-        )*/
+fun ResultsScreenImage() {
+    Image(
+        painter = painterResource(
+            resource = if (isSystemInDarkTheme()) {
+                Res.drawable.dark_results_screen
+            } else {
+                Res.drawable.light_results_screen
+            }
+        ),
+        contentDescription = "Results Screen Image"
+    )
 
-        Text(
-            text = "Your audio file was successfully converted to 8D...",
-            style = MaterialTheme.typography.titleLarge
-        )
-    }
+    Spacer(modifier = Modifier.height(height = 7.dp))
+}
+
+@Composable
+internal fun ResultsConfirmationText() {
+    Text(
+        text = "Your audio file was successfully converted to 8D :)",
+        style = MaterialTheme.typography.titleMedium
+    )
+
+    Spacer(modifier = Modifier.height(height = 7.dp))
 }
 
 @Composable
@@ -135,6 +155,8 @@ internal fun DownloadButton() {
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
         Text(text = "Download", style = MaterialTheme.typography.labelLarge)
     }
+
+    Spacer(modifier = Modifier.height(height = 7.dp))
 }
 
 @Composable
@@ -142,6 +164,6 @@ internal fun NavigateToScreenButton() {
     Button(onClick = {
         // Navigate to the Home Screen...
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
-        Text(text = "Convert another audio file...", style = MaterialTheme.typography.labelLarge)
+        Text(text = "Convert Another Audio File", style = MaterialTheme.typography.labelLarge)
     }
 }

@@ -22,7 +22,9 @@
 */
 package emmanuelmuturia.sonux.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -48,6 +50,10 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.resources.painterResource
+import sonux.composeapp.generated.resources.Res
+import sonux.composeapp.generated.resources.dark_confirmation_screen
+import sonux.composeapp.generated.resources.light_confirmation_screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -88,10 +94,14 @@ fun ConfirmationScreen() {
 @Composable
 internal fun ConfirmationScreenContent(modifier: Modifier) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(all = 7.dp),
-        verticalArrangement = Arrangement.Center,
+        modifier = modifier.fillMaxSize().padding(all = 7.dp),
+        verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        item {
+            ConfirmationScreenImage()
+        }
+
         item(key = "AudioFileDetails") {
             AudioFileDetails()
         }
@@ -103,6 +113,20 @@ internal fun ConfirmationScreenContent(modifier: Modifier) {
 }
 
 @Composable
+fun ConfirmationScreenImage() {
+    Image(
+        painter = painterResource(
+            resource = if (isSystemInDarkTheme()) {
+                Res.drawable.dark_confirmation_screen
+            } else {
+                Res.drawable.light_confirmation_screen
+            }
+        ),
+        contentDescription = "Confirmation Screen Image"
+    )
+}
+
+@Composable
 internal fun AudioFileDetails() {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -111,7 +135,7 @@ internal fun AudioFileDetails() {
     ) {
         Text(
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle()) {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                     append(text = "Audio Title: ")
                 }
                 append(text = "Sample Audio Title")
@@ -120,7 +144,7 @@ internal fun AudioFileDetails() {
 
         Text(
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle()) {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                     append(text = "Audio Type: ")
                 }
                 append(text = "Sample Audio Type")
@@ -129,7 +153,7 @@ internal fun AudioFileDetails() {
 
         Text(
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle()) {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                     append(text = "Audio Size: ")
                 }
                 append(text = "Sample Audio Size")
@@ -143,6 +167,6 @@ internal fun ConvertButton() {
     Button(onClick = {
         // Convert the audio file...
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
-        Text(text = "Convert", style = MaterialTheme.typography.labelLarge)
+        Text(text = "Convert To 8D", style = MaterialTheme.typography.labelLarge)
     }
 }
