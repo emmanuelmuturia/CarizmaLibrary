@@ -22,15 +22,30 @@
 */
 package ui
 
+import androidx.compose.ui.test.ExperimentalTestApi
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.runComposeUiTest
+import emmanuelmuturia.sonux.screens.ResultsScreen
+import kotlin.test.Test
+
 class ResultsScreenUITest {
 
-    /*@OptIn(ExperimentalTestApi::class)
+    @OptIn(ExperimentalTestApi::class)
     @Test
     fun testResultsScreenUIElements() = runComposeUiTest {
         setContent {
             ResultsScreen()
         }
 
-        // Write the Assertions from here...
-    }*/
+        onNodeWithText(text = "Results").assertExists()
+        onNodeWithContentDescription(label = "Navigate Back Icon").performClick()
+        onNodeWithContentDescription(label = "Results Screen Image").assertExists()
+        onNodeWithText(text = "Your audio file was successfully converted to 8D :)").assertExists()
+        onNodeWithText(text = "Download").performClick()
+        onNodeWithText(text = "Convert Another Audio File").performClick()
+
+    }
+
 }
