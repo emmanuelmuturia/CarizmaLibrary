@@ -1,3 +1,4 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -38,6 +39,13 @@ kotlin {
             implementation(dependencyNotation = libs.androidx.lifecycle.runtime.compose)
             implementation(dependencyNotation = projects.shared)
             implementation(dependencyNotation = libs.material3)
+        }
+        commonTest.dependencies {
+            implementation(dependencyNotation = libs.kotlin.test)
+            implementation(dependencyNotation = kotlin(simpleModuleName = "test-annotations-common"))
+            implementation(dependencyNotation = libs.assertK)
+            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(dependencyNotation = compose.uiTest)
         }
         desktopMain.dependencies {
             implementation(dependencyNotation = compose.desktop.currentOs)
