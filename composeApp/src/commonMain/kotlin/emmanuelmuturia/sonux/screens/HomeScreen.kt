@@ -62,7 +62,9 @@ class HomeScreen : Screen {
     @Composable
     override fun Content() {
         Scaffold(
-            modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
+            modifier = Modifier.fillMaxSize().background(
+                color = MaterialTheme.colorScheme.background
+            ),
             topBar = {
                 CenterAlignedTopAppBar(
                     title = {

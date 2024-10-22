@@ -64,7 +64,9 @@ class ConfirmationScreen : Screen {
     override fun Content() {
         val navigator = LocalNavigator.current
         Scaffold(
-            modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
+            modifier = Modifier.fillMaxSize().background(
+                color = MaterialTheme.colorScheme.background
+            ),
             topBar = {
                 CenterAlignedTopAppBar(
                     title = {
