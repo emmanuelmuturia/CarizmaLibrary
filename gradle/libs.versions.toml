@@ -22,6 +22,7 @@ detekt = "1.23.1"
 spotless = "6.23.3"
 material3 = "1.3.0"
 compose = "1.7.4"
+assertK = "0.28.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -45,6 +46,7 @@ kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android
 material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+assertK = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertK" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
