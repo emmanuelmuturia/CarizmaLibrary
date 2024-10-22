@@ -31,6 +31,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -77,7 +78,7 @@ fun HomeScreen() {
 @Composable
 internal fun HomeScreenContent(modifier: Modifier) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(all = 7.dp),
+        modifier = modifier.fillMaxSize().padding(all = 14.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -99,7 +100,7 @@ internal fun HomeScreenAnimation() {
 internal fun HomeScreenText() {
     Text(
         text = buildAnnotatedString {
-            withStyle(style = SpanStyle()) {
+            withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                 append(text = "Supported File Formats: ")
             }
             append(text = "MP3, WAV, FLAC, and OGG")
@@ -109,7 +110,7 @@ internal fun HomeScreenText() {
 
 @Composable
 internal fun HomeScreenButton() {
-    FloatingActionButton(onClick = {
+    ExtendedFloatingActionButton(onClick = {
         // Select the audio file...
     }, containerColor = MaterialTheme.colorScheme.primary) {
         Icon(
@@ -117,5 +118,6 @@ internal fun HomeScreenButton() {
             contentDescription = "Select Audio File Button",
             tint = MaterialTheme.colorScheme.onPrimary
         )
+        Text(text = "Upload Audio File", modifier = Modifier.padding(all = 7.dp))
     }
 }

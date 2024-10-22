@@ -28,7 +28,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import emmanuelmuturia.sonux.app.App
+import emmanuelmuturia.sonux.screens.ConfirmationScreen
 import emmanuelmuturia.sonux.screens.HomeScreen
+import emmanuelmuturia.sonux.screens.ResultsScreen
 import emmanuelmuturia.sonux.theme.SonuxAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +38,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SonuxAndroidTheme {
-                HomeScreen()
+                ResultsScreen()
             }
         }
     }

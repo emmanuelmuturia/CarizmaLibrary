@@ -88,8 +88,8 @@ fun ConfirmationScreen() {
 @Composable
 internal fun ConfirmationScreenContent(modifier: Modifier) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(all = 7.dp),
-        verticalArrangement = Arrangement.Center,
+        modifier = modifier.fillMaxSize().padding(all = 7.dp),
+        verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item(key = "AudioFileDetails") {
@@ -111,7 +111,7 @@ internal fun AudioFileDetails() {
     ) {
         Text(
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle()) {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                     append(text = "Audio Title: ")
                 }
                 append(text = "Sample Audio Title")
@@ -120,7 +120,7 @@ internal fun AudioFileDetails() {
 
         Text(
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle()) {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                     append(text = "Audio Type: ")
                 }
                 append(text = "Sample Audio Type")
@@ -129,7 +129,7 @@ internal fun AudioFileDetails() {
 
         Text(
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle()) {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                     append(text = "Audio Size: ")
                 }
                 append(text = "Sample Audio Size")
@@ -143,6 +143,6 @@ internal fun ConvertButton() {
     Button(onClick = {
         // Convert the audio file...
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
-        Text(text = "Convert", style = MaterialTheme.typography.labelLarge)
+        Text(text = "Convert To 8D", style = MaterialTheme.typography.labelLarge)
     }
 }

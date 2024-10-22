@@ -25,7 +25,9 @@ package emmanuelmuturia.sonux.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -85,7 +87,7 @@ fun ResultsScreen() {
 @Composable
 internal fun ResultsScreenContent(modifier: Modifier) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(all = 7.dp),
+        modifier = modifier.fillMaxSize().padding(all = 7.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -122,10 +124,12 @@ internal fun ResultsConfirmationText() {
         )*/
 
         Text(
-            text = "Your audio file was successfully converted to 8D...",
-            style = MaterialTheme.typography.titleLarge
+            text = "Your audio file was successfully converted to 8D :)",
+            style = MaterialTheme.typography.titleMedium
         )
     }
+
+    Spacer(modifier = Modifier.height(height = 7.dp))
 }
 
 @Composable
@@ -135,6 +139,8 @@ internal fun DownloadButton() {
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
         Text(text = "Download", style = MaterialTheme.typography.labelLarge)
     }
+
+    Spacer(modifier = Modifier.height(height = 7.dp))
 }
 
 @Composable
@@ -142,6 +148,6 @@ internal fun NavigateToScreenButton() {
     Button(onClick = {
         // Navigate to the Home Screen...
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
-        Text(text = "Convert another audio file...", style = MaterialTheme.typography.labelLarge)
+        Text(text = "Convert Another Audio File", style = MaterialTheme.typography.labelLarge)
     }
 }
