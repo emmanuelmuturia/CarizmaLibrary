@@ -22,6 +22,7 @@
 */
 package emmanuelmuturia.sonux.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -47,6 +48,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.resources.painterResource
+import sonux.composeapp.generated.resources.Res
+import sonux.composeapp.generated.resources.green_checkmark
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -118,10 +122,10 @@ internal fun ResultsConfirmationText() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
-        /*Image(
-            painter = painterResource(id = R.drawable.green_checkmark),
+        Image(
+            painter = painterResource(resource = Res.drawable.green_checkmark),
             contentDescription = "Success Checkmark"
-        )*/
+        )
 
         Text(
             text = "Your audio file was successfully converted to 8D :)",
