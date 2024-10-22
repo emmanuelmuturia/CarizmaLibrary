@@ -26,7 +26,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -52,7 +51,6 @@ import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_results_screen
-import sonux.composeapp.generated.resources.green_checkmark
 import sonux.composeapp.generated.resources.light_results_screen
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -127,7 +125,13 @@ internal fun ResultsScreenContent(modifier: Modifier) {
 @Composable
 fun ResultsScreenImage() {
     Image(
-        painter = painterResource(resource = if (isSystemInDarkTheme()) Res.drawable.dark_results_screen else Res.drawable.light_results_screen),
+        painter = painterResource(
+            resource = if (isSystemInDarkTheme()) {
+                Res.drawable.dark_results_screen
+            } else {
+                Res.drawable.light_results_screen
+            }
+        ),
         contentDescription = "Results Screen Image"
     )
 

@@ -102,7 +102,13 @@ internal fun HomeScreenContent(modifier: Modifier) {
 @Composable
 internal fun HomeScreenImage() {
     Image(
-        painter = painterResource(resource = if (isSystemInDarkTheme()) Res.drawable.dark_home_screen else Res.drawable.light_home_screen),
+        painter = painterResource(
+            resource = if (isSystemInDarkTheme()) {
+                Res.drawable.dark_home_screen
+            } else {
+                Res.drawable.light_home_screen
+            }
+        ),
         contentDescription = "Home Screen Image"
     )
 

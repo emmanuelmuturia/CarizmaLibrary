@@ -102,7 +102,6 @@ internal fun ConfirmationScreenContent(modifier: Modifier) {
             ConfirmationScreenImage()
         }
 
-
         item(key = "AudioFileDetails") {
             AudioFileDetails()
         }
@@ -116,7 +115,13 @@ internal fun ConfirmationScreenContent(modifier: Modifier) {
 @Composable
 fun ConfirmationScreenImage() {
     Image(
-        painter = painterResource(resource = if (isSystemInDarkTheme()) Res.drawable.dark_confirmation_screen else Res.drawable.light_confirmation_screen),
+        painter = painterResource(
+            resource = if (isSystemInDarkTheme()) {
+                Res.drawable.dark_confirmation_screen
+            } else {
+                Res.drawable.light_confirmation_screen
+            }
+        ),
         contentDescription = "Confirmation Screen Image"
     )
 }
