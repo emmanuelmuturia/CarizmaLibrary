@@ -22,15 +22,26 @@
 */
 package ui
 
+import androidx.compose.ui.test.ExperimentalTestApi
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.runComposeUiTest
+import emmanuelmuturia.sonux.screens.HomeScreen
+import kotlin.test.Test
+
 class HomeScreenUITest {
 
-    /*@OptIn(ExperimentalTestApi::class)
+    @OptIn(ExperimentalTestApi::class)
     @Test
     fun testHomeScreenUIElements() = runComposeUiTest {
         setContent {
             HomeScreen()
         }
 
-        // Write the assertions from here...
-    }*/
+        onNodeWithText(text = "Sonux").assertExists()
+        onNodeWithContentDescription(label = "Home Screen Image").assertExists()
+        onNodeWithText(text = "Supported File Formats: ").assertExists()
+        onNodeWithText(text = "MP3, WAV, FLAC, and OGG").assertExists()
+        onNodeWithText(text = "Upload Audio File")
+    }
 }

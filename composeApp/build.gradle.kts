@@ -38,7 +38,7 @@ kotlin {
             implementation(dependencyNotation = libs.androidx.lifecycle.viewmodel)
             implementation(dependencyNotation = libs.androidx.lifecycle.runtime.compose)
             implementation(dependencyNotation = projects.shared)
-            implementation(dependencyNotation = libs.material3)
+            implementation(dependencyNotation = compose.material3)
         }
         commonTest.dependencies {
             implementation(dependencyNotation = libs.kotlin.test)
@@ -80,11 +80,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    dependencies {
-        androidTestImplementation(dependencyNotation = libs.androidx.compose.ui.test.junit4)
-        androidTestImplementation(dependencyNotation = libs.androidx.compose.ui.test.manifest)
     }
 }
 

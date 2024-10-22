@@ -89,7 +89,7 @@ internal fun HomeScreenContent(modifier: Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        item(key = "HomeScreenAnimation") {
+        item(key = "HomeScreenImage") {
             HomeScreenImage()
         }
 
