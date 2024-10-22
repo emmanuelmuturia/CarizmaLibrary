@@ -45,7 +45,5 @@ class ResultsScreenUITest {
         onNodeWithText(text = "Your audio file was successfully converted to 8D :)").assertExists()
         onNodeWithText(text = "Download").performClick()
         onNodeWithText(text = "Convert Another Audio File").performClick()
-
     }
-
 }
