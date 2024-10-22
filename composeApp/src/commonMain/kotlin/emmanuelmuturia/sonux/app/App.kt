@@ -24,12 +24,15 @@ package emmanuelmuturia.sonux.app
 
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.transitions.SlideTransition
 import emmanuelmuturia.sonux.screens.HomeScreen
 import emmanuelmuturia.sonux.ui.theme.SonuxSharedTheme
 
 @Composable
 fun App() {
     SonuxSharedTheme {
-        Navigator(screen = HomeScreen())
+        Navigator(screen = HomeScreen()) { navigator ->
+            SlideTransition(navigator = navigator)
+        }
     }
 }
