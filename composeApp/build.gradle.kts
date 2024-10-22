@@ -42,7 +42,9 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(dependencyNotation = libs.kotlin.test)
-            implementation(dependencyNotation = kotlin(simpleModuleName = "test-annotations-common"))
+            implementation(
+                dependencyNotation = kotlin(simpleModuleName = "test-annotations-common")
+            )
             implementation(dependencyNotation = libs.assertK)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(dependencyNotation = compose.uiTest)
