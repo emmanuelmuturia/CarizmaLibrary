@@ -51,6 +51,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_confirmation_screen
@@ -61,6 +62,7 @@ class ConfirmationScreen : Screen {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.current
         Scaffold(
             modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
             topBar = {
@@ -78,7 +80,7 @@ class ConfirmationScreen : Screen {
                     ),
                     navigationIcon = {
                         IconButton(onClick = {
-                            // Navigate back...
+                            navigator?.pop()
                         }) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
@@ -168,8 +170,10 @@ internal fun AudioFileDetails() {
 
 @Composable
 internal fun ConvertButton() {
+    val navigator = LocalNavigator.current
     Button(onClick = {
-        // Convert the audio file...
+        // Convert the audio file and navigate to the ResultsScreen once it is done...
+        navigator?.push(item = ResultsScreen())
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
         Text(text = "Convert To 8D", style = MaterialTheme.typography.labelLarge)
     }

@@ -49,6 +49,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_results_screen
@@ -59,6 +60,7 @@ class ResultsScreen : Screen {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.current
         Scaffold(
             modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.background),
             topBar = {
@@ -76,7 +78,7 @@ class ResultsScreen : Screen {
                     ),
                     navigationIcon = {
                         IconButton(onClick = {
-                            // Navigate back...
+                            navigator?.pop()
                         }) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
@@ -165,8 +167,11 @@ internal fun DownloadButton() {
 
 @Composable
 internal fun NavigateToScreenButton() {
+    val navigator = LocalNavigator.current
     Button(onClick = {
+        // Clear anything that needs to be cleared...
         // Navigate to the Home Screen...
+        navigator?.popAll()
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
         Text(text = "Convert Another Audio File", style = MaterialTheme.typography.labelLarge)
     }

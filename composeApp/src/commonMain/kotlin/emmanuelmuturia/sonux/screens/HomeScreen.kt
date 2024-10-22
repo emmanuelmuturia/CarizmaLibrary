@@ -50,6 +50,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_home_screen
@@ -133,8 +134,10 @@ internal fun HomeScreenText() {
 
 @Composable
 internal fun HomeScreenButton() {
+    val navigator = LocalNavigator.current
     ExtendedFloatingActionButton(onClick = {
-        // Select the audio file...
+        // Select the audio file and once it is complete navigate to the next screen...
+        navigator?.push(item = ConfirmationScreen())
     }, containerColor = MaterialTheme.colorScheme.primary) {
         Icon(
             imageVector = Icons.Rounded.Add,
