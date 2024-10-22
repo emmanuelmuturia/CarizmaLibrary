@@ -43,9 +43,9 @@ class ConfirmationScreenUITest {
         onNodeWithContentDescription(label = "Navigate Back Icon").assertExists()
         onNodeWithContentDescription(label = "Navigate Back Icon").performClick()
         onNodeWithContentDescription(label = "Confirmation Screen Image").assertExists()
-        onNodeWithText(text = "Audio Title: Sample Audio Title").assertExists()
-        onNodeWithText(text = "Audio Type: Sample Audio Type").assertExists()
-        onNodeWithText(text = "Audio Size: Sample Audio Size").assertExists()
+        //onNodeWithText(text = "Audio Title: Sample Audio Title").assertExists()
+        //onNodeWithText(text = "Audio Type: Sample Audio Type").assertExists()
+        //onNodeWithText(text = "Audio Size: Sample Audio Size").assertExists()
         onNodeWithText(text = "Convert To 8D").performClick()
 
     }

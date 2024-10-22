@@ -40,7 +40,8 @@ class HomeScreenUITest {
 
         onNodeWithText(text = "Sonux").assertExists()
         onNodeWithContentDescription(label = "Home Screen Image").assertExists()
-        onNodeWithText(text = "Supported File Formats: MP3, WAV, FLAC, and OGG").assertExists()
+        onNodeWithText(text = "Supported File Formats: ").assertExists()
+        onNodeWithText(text = "MP3, WAV, FLAC, and OGG").assertExists()
         onNodeWithText(text = "Upload Audio File")
 
     }
