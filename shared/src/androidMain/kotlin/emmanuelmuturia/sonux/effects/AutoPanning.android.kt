@@ -23,28 +23,29 @@
 package emmanuelmuturia.sonux.effects
 
 import android.media.MediaPlayer
-import kotlin.math.sin
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
+import kotlin.math.sin
 
 /**
  * This is the Auto Panning Effect that creates an immersive auditory experience by dynamically
  * shifting the Left Volume and the Right Volume of the audio...
  *
- * @param mediaPlayer This is the [MediaPlayer] class that will be declared and used (Singleton Pattern) to control the audio and the Audio Effects...
  * @param frequency This is the Frequency of the Auto Panning Effect and it controls the speed in which the audio pans to both Left and Right...
  * @param amount This is used to control how far the audio moves between channels...
  * @param coroutineDispatcher This represents a [CoroutineDispatcher] instance that specifies on which Thread the Coroutine(s) will run on...
  */
 
-internal suspend fun applyAutoPanning(
-    mediaPlayer: MediaPlayer,
-    frequency: Float = 0.49f,
-    amount: Float = 80f,
+internal actual suspend fun applyAutoPanning(
+    frequency: Float,
+    amount: Float,
     coroutineDispatcher: CoroutineDispatcher
 ) {
+
+    val mediaPlayer = MediaPlayer()
+
     withContext(context = coroutineDispatcher) {
         var phase = 0.0
 

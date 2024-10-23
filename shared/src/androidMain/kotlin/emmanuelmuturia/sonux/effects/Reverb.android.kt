@@ -29,14 +29,14 @@ import kotlinx.coroutines.withContext
 
 /**
  * This is the Reverb Effect that creates the illusion of sound occurring in a specific space...
- * @param mediaPlayer This is the [MediaPlayer] class that will be declared and used (Singleton Pattern) to control the audio and the Audio Effects...
  * @param coroutineDispatcher This represents a [CoroutineDispatcher] instance that specifies on which Thread the Coroutine(s) will run on...
  */
 
-internal suspend fun applyReverb(
-    mediaPlayer: MediaPlayer,
+internal actual suspend fun applyReverb(
     coroutineDispatcher: CoroutineDispatcher
 ) {
+    val mediaPlayer = MediaPlayer()
+
     withContext(context = coroutineDispatcher) {
         EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
             enabled = true
