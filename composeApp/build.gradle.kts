@@ -42,6 +42,7 @@ kotlin {
             implementation(dependencyNotation = libs.voyager.navigator)
             implementation(dependencyNotation = libs.voyager.tabNavigator)
             implementation(dependencyNotation = libs.voyager.transitions)
+            implementation(dependencyNotation = libs.androidx.lifecycle.viewmodel.compose)
         }
         commonTest.dependencies {
             implementation(dependencyNotation = libs.kotlin.test)
@@ -55,6 +56,10 @@ kotlin {
         desktopMain.dependencies {
             implementation(dependencyNotation = compose.desktop.currentOs)
             implementation(dependencyNotation = libs.kotlinx.coroutines.swing)
+        }
+        dependencies {
+            api(dependencyNotation = libs.moko.permissions)
+            api(dependencyNotation = libs.moko.permissions.compose)
         }
     }
 }
