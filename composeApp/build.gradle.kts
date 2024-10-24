@@ -57,10 +57,6 @@ kotlin {
             implementation(dependencyNotation = compose.desktop.currentOs)
             implementation(dependencyNotation = libs.kotlinx.coroutines.swing)
         }
-        dependencies {
-            api(dependencyNotation = libs.moko.permissions)
-            api(dependencyNotation = libs.moko.permissions.compose)
-        }
     }
 }
 
