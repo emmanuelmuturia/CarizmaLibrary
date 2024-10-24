@@ -100,13 +100,21 @@ data class ResultsScreen(val audioFileUri: String) : Screen {
                 )
             }
         ) { paddingValues ->
-            ResultsScreenContent(modifier = Modifier.padding(paddingValues = paddingValues), sonuxViewModel = sonuxViewModel, audioFileUri = audioFileUri)
+            ResultsScreenContent(
+                modifier = Modifier.padding(paddingValues = paddingValues),
+                sonuxViewModel = sonuxViewModel,
+                audioFileUri = audioFileUri
+            )
         }
     }
 }
 
 @Composable
-internal fun ResultsScreenContent(modifier: Modifier, sonuxViewModel: SonuxViewModel, audioFileUri: String) {
+internal fun ResultsScreenContent(
+    modifier: Modifier,
+    sonuxViewModel: SonuxViewModel,
+    audioFileUri: String
+) {
     val isPlaying by sonuxViewModel.isPlaying.collectAsState()
     LazyColumn(
         modifier = modifier.fillMaxSize().padding(all = 7.dp),
@@ -180,16 +188,15 @@ internal fun DownloadButton() {
 
 @Composable
 internal fun PlayPauseButton(
-    isPlaying: Boolean,         // Pass the playback state
-    onPlayPauseClicked: () -> Unit  // Callback when button is clicked
+    isPlaying: Boolean, // Pass the playback state
+    onPlayPauseClicked: () -> Unit // Callback when button is clicked
 ) {
     IconButton(
-        onClick = { onPlayPauseClicked() },  // Trigger the play/pause function
+        onClick = { onPlayPauseClicked() }, // Trigger the play/pause function
         colors = IconButtonDefaults.iconButtonColors(
             containerColor = MaterialTheme.colorScheme.primary
         )
     ) {
-
         Icon(
             imageVector = if (isPlaying) Icons.Rounded.Add else Icons.Rounded.PlayArrow,
             contentDescription = if (isPlaying) "Pause Button" else "Play Button",

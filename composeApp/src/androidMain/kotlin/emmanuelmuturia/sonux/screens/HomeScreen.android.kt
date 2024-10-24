@@ -33,7 +33,9 @@ internal actual fun HomeScreenButton() {
         onResult = { uri: Uri? ->
             if (uri != null) {
                 // Handle selected audio file URI
-                navigator?.push(item = ConfirmationScreen(audioFileUri = Uri.parse(uri.toString()).toString()))
+                navigator?.push(
+                    item = ConfirmationScreen(audioFileUri = Uri.parse(uri.toString()).toString())
+                )
             }
         }
     )
@@ -54,7 +56,8 @@ internal actual fun HomeScreenButton() {
     }
 
     // Check if permission is needed and show dialog if necessary
-    val permission = if (Build.VERSION.SDK_INT > 32) Manifest.permission.READ_MEDIA_AUDIO else Manifest.permission.READ_EXTERNAL_STORAGE
+    val permission = if (Build.VERSION.SDK_INT > 32) Manifest.permission.READ_MEDIA_AUDIO else
+            Manifest.permission.READ_EXTERNAL_STORAGE
 
     ExtendedFloatingActionButton(
         onClick = {

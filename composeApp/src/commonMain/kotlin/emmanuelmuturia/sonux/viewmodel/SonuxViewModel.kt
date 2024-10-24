@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class SonuxViewModel(
     private val audioEffects: AudioEffects,
-    private val coroutineDispatcher: CoroutineDispatcher,
+    private val coroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     private val _isPlaying: MutableStateFlow<Boolean> = MutableStateFlow(value = false)
@@ -28,7 +28,12 @@ class SonuxViewModel(
     private fun playAudio(audioFileUri: String) {
         _isPlaying.value = true
         viewModelScope.launch {
-            audioEffects.playAudioIn8D(frequency = 1.0f, amount = 100f, coroutineDispatcher = coroutineDispatcher, audioFileUri = audioFileUri)
+            audioEffects.playAudioIn8D(
+                frequency = 1.0f,
+                amount = 100f,
+                coroutineDispatcher = coroutineDispatcher,
+                audioFileUri = audioFileUri
+            )
         }
     }
 

@@ -22,7 +22,6 @@ interface AudioEffects {
     )
 
     suspend fun stopPlayingAudio()
-
 }
 
 expect fun getAudioEffects(): AudioEffects

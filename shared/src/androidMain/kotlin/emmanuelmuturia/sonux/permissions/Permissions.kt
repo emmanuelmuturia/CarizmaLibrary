@@ -11,7 +11,10 @@ fun checkIfPermissionIsGranted(
     context: Context,
     permission: String
 ): Boolean {
-    return (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED)
+    return (
+        ContextCompat.checkSelfPermission(context, permission) ==
+            PackageManager.PERMISSION_GRANTED
+        )
 }
 
 fun shouldShowPermissionRationale(
@@ -19,8 +22,9 @@ fun shouldShowPermissionRationale(
     permission: String
 ): Boolean {
     val activity = context as Activity?
-    if (activity == null)
+    if (activity == null) {
         Log.d("Permissions", "Activity is null")
+    }
 
     return ActivityCompat.shouldShowRequestPermissionRationale(activity!!, permission)
 }

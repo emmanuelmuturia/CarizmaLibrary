@@ -33,7 +33,7 @@ internal actual fun AudioFileDetails(uri: String) {
     val projection = arrayOf(
         MediaStore.Audio.Media.TITLE,
         MediaStore.Audio.Media.SIZE,
-        MediaStore.Audio.Media.DISPLAY_NAME,
+        MediaStore.Audio.Media.DISPLAY_NAME
     )
 
     val cursor: Cursor? = contentResolver.query(
@@ -47,7 +47,6 @@ internal actual fun AudioFileDetails(uri: String) {
     cursor.use {
         if (it != null) {
             if (it.moveToFirst()) {
-
                 // Size
                 val sizeColumnIndex = it.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE)
                 audioSize = it.getLong(sizeColumnIndex)
@@ -58,7 +57,6 @@ internal actual fun AudioFileDetails(uri: String) {
 
                 // MIME Type
                 audioType = contentResolver.getType(Uri.parse(uri)).toString()
-
             }
         }
     }

@@ -15,5 +15,4 @@ val androidMainKoinModule = module {
     viewModel {
         SonuxViewModel(audioEffects = get(), coroutineDispatcher = get())
     }
-
 }

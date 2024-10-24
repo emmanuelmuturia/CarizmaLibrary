@@ -30,7 +30,9 @@ actual fun PermissionDialog(
         return
     }
 
-    val permissionsLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+    val permissionsLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
         if (isGranted) {
             permissionAction(PermissionAction.PermissionGranted)
         } else {
@@ -38,7 +40,10 @@ actual fun PermissionDialog(
         }
     }
 
-    val showPermissionRationale = shouldShowPermissionRationale(context = context, permission = permission)
+    val showPermissionRationale = shouldShowPermissionRationale(
+        context = context,
+        permission = permission
+    )
     var isDialogMissed by remember { mutableStateOf(value = false) }
     var isPristine by remember { mutableStateOf(value = true) }
 
@@ -50,7 +55,11 @@ actual fun PermissionDialog(
                 permissionAction(PermissionAction.PermissionDenied)
             },
             title = { Text(text = "Permission Required") },
-            text = { Text(text = "This app requires the Read Media (Audio) Permission to be granted...") },
+            text = {
+                Text(
+                    text = "This app requires the Read Media (Audio) Permission to be granted..."
+                )
+            },
             confirmButton = {
                 Button(
                     onClick = {

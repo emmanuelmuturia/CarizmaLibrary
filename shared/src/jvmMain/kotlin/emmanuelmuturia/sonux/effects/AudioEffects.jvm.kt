@@ -2,7 +2,7 @@ package emmanuelmuturia.sonux.effects
 
 import kotlinx.coroutines.CoroutineDispatcher
 
-actual fun getAudioEffects() : AudioEffects = JVMAudioEffects()
+actual fun getAudioEffects(): AudioEffects = JVMAudioEffects()
 
 class JVMAudioEffects : AudioEffects {
     override suspend fun playAudioIn8D(
@@ -26,5 +26,4 @@ class JVMAudioEffects : AudioEffects {
     override suspend fun stopPlayingAudio() {
         TODO("Not yet implemented")
     }
-
 }

@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.media.audiofx.EnvironmentalReverb
 import android.net.Uri
 import android.util.Log
+import kotlin.math.sin
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -14,12 +15,11 @@ import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.java.KoinJavaComponent.inject
-import kotlin.math.sin
 
 actual fun getAudioEffects(): AudioEffects = AndroidAudioEffects()
 
 class AndroidAudioEffects(
-    private val mediaPlayer: MediaPlayer = MediaPlayer() // Common MediaPlayer instance for both effects
+    private val mediaPlayer: MediaPlayer = MediaPlayer()
 ) : AudioEffects, KoinComponent {
     override suspend fun playAudioIn8D(
         audioFileUri: String,
@@ -51,7 +51,10 @@ class AndroidAudioEffects(
                             val leftVolume = (0.5f * (1 - amount / 100) * sin(phase) + 0.6f)
                                 .coerceIn(0.3, 0.9)
                                 .toFloat()
-                            val rightVolume = (0.5f * (1 + amount / 100) * sin(phase + Math.PI) + 0.6f)
+                            val rightVolume = (
+                                0.5f * (1 + amount / 100) *
+                                    sin(phase + Math.PI) + 0.6f
+                                )
                                 .coerceIn(0.3, 0.9)
                                 .toFloat()
 
@@ -142,5 +145,4 @@ class AndroidAudioEffects(
     override suspend fun stopPlayingAudio() {
         mediaPlayer.stop()
     }
-
 }

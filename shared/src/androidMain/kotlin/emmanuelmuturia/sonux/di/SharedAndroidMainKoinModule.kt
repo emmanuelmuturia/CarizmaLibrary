@@ -16,5 +16,4 @@ val sharedAndroidMainKoinModule = module {
     single<AudioEffects> {
         AndroidAudioEffects(mediaPlayer = MediaPlayer())
     }
-
 }
