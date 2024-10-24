@@ -8,7 +8,6 @@ plugins {
     alias(notation = libs.plugins.androidApplication)
     alias(notation = libs.plugins.jetbrainsCompose)
     alias(notation = libs.plugins.compose.compiler)
-    alias(notation = libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -29,7 +28,6 @@ kotlin {
             implementation(dependencyNotation = libs.androidx.activity.compose)
             implementation(dependencyNotation = libs.material3)
             implementation(dependencyNotation = projects.shared)
-            implementation(dependencyNotation = libs.kotlin.serialization)
         }
         commonMain.dependencies {
             implementation(dependencyNotation = compose.runtime)

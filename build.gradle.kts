@@ -10,7 +10,6 @@ plugins {
     alias(notation = libs.plugins.ktlint)
     alias(notation = libs.plugins.detekt)
     alias(notation = libs.plugins.spotless)
-    alias(notation = libs.plugins.kotlin.serialization) apply false
 }
 
 subprojects {

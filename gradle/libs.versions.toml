@@ -27,7 +27,6 @@ voyager = "1.1.0-beta02"
 lifecycleViewModelCompose = "2.8.0"
 moko = "0.18.1"
 core = "1.13.1"
-kotlin-serialization = "1.7.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -60,7 +59,6 @@ androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecy
 moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "moko" }
 moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko" }
 androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
-kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -73,4 +71,3 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

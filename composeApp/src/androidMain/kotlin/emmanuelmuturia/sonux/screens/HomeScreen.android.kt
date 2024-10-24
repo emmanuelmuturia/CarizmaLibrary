@@ -18,8 +18,6 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
 import emmanuelmuturia.sonux.components.PermissionDialog
 import emmanuelmuturia.sonux.permissions.PermissionAction
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 @Composable
 internal actual fun HomeScreenButton() {
