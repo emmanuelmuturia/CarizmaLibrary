@@ -135,17 +135,4 @@ internal fun HomeScreenText() {
 }
 
 @Composable
-internal fun HomeScreenButton() {
-    val navigator = LocalNavigator.current
-    ExtendedFloatingActionButton(onClick = {
-        // Select the audio file and once it is complete navigate to the next screen...
-        navigator?.push(item = ConfirmationScreen())
-    }, containerColor = MaterialTheme.colorScheme.primary) {
-        Icon(
-            imageVector = Icons.Rounded.Add,
-            contentDescription = "Select Audio File Button",
-            tint = MaterialTheme.colorScheme.onPrimary
-        )
-        Text(text = "Upload Audio File", modifier = Modifier.padding(all = 7.dp))
-    }
-}
+internal expect fun HomeScreenButton()
