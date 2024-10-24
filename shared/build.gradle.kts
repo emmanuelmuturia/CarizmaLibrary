@@ -24,6 +24,7 @@ kotlin {
         androidMain.dependencies {
             // I might remove this later...
             implementation(dependencyNotation = libs.kotlinx.coroutines.android)
+            implementation(dependencyNotation = libs.androidx.core)
         }
     }
 }
