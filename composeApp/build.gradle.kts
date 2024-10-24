@@ -28,6 +28,7 @@ kotlin {
             implementation(dependencyNotation = libs.androidx.activity.compose)
             implementation(dependencyNotation = libs.material3)
             implementation(dependencyNotation = projects.shared)
+            implementation(dependencyNotation = libs.bundles.koin)
         }
         commonMain.dependencies {
             implementation(dependencyNotation = compose.runtime)
@@ -42,6 +43,8 @@ kotlin {
             implementation(dependencyNotation = libs.voyager.navigator)
             implementation(dependencyNotation = libs.voyager.tabNavigator)
             implementation(dependencyNotation = libs.voyager.transitions)
+            implementation(dependencyNotation = libs.androidx.lifecycle.viewmodel.compose)
+            implementation(dependencyNotation = libs.koin.compose.viewmodel)
         }
         commonTest.dependencies {
             implementation(dependencyNotation = libs.kotlin.test)

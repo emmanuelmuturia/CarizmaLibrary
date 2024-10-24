@@ -19,10 +19,13 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
+            implementation(dependencyNotation = libs.kotlinx.coroutines)
         }
         androidMain.dependencies {
             // I might remove this later...
-            implementation(dependencyNotation = libs.kotlin.coroutines)
+            implementation(dependencyNotation = libs.kotlinx.coroutines.android)
+            implementation(dependencyNotation = libs.androidx.core)
+            implementation(dependencyNotation = libs.bundles.koin)
         }
     }
 }

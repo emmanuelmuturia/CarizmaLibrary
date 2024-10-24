@@ -33,33 +33,41 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
+import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_results_screen
 import sonux.composeapp.generated.resources.light_results_screen
 
-class ResultsScreen : Screen {
+data class ResultsScreen(val audioFileUri: String) : Screen {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val sonuxViewModel: SonuxViewModel = koinViewModel()
         val navigator = LocalNavigator.current
         Scaffold(
             modifier = Modifier.fillMaxSize().background(
@@ -92,13 +100,22 @@ class ResultsScreen : Screen {
                 )
             }
         ) { paddingValues ->
-            ResultsScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
+            ResultsScreenContent(
+                modifier = Modifier.padding(paddingValues = paddingValues),
+                sonuxViewModel = sonuxViewModel,
+                audioFileUri = audioFileUri
+            )
         }
     }
 }
 
 @Composable
-internal fun ResultsScreenContent(modifier: Modifier) {
+internal fun ResultsScreenContent(
+    modifier: Modifier,
+    sonuxViewModel: SonuxViewModel,
+    audioFileUri: String
+) {
+    val isPlaying by sonuxViewModel.isPlaying.collectAsState()
     LazyColumn(
         modifier = modifier.fillMaxSize().padding(all = 7.dp),
         verticalArrangement = Arrangement.Center,
@@ -119,7 +136,9 @@ internal fun ResultsScreenContent(modifier: Modifier) {
         item(
             key = "DownloadButton"
         ) {
-            DownloadButton()
+            PlayPauseButton(isPlaying = isPlaying) {
+                sonuxViewModel.onPlayPauseButtonClicked(audioFileUri = audioFileUri)
+            }
         }
 
         item(
@@ -156,7 +175,7 @@ internal fun ResultsConfirmationText() {
     Spacer(modifier = Modifier.height(height = 7.dp))
 }
 
-@Composable
+/*@Composable
 internal fun DownloadButton() {
     Button(onClick = {
         // Download the converted the audio file...
@@ -165,6 +184,27 @@ internal fun DownloadButton() {
     }
 
     Spacer(modifier = Modifier.height(height = 7.dp))
+}*/
+
+@Composable
+internal fun PlayPauseButton(
+    isPlaying: Boolean, // Pass the playback state
+    onPlayPauseClicked: () -> Unit // Callback when button is clicked
+) {
+    IconButton(
+        onClick = { onPlayPauseClicked() }, // Trigger the play/pause function
+        colors = IconButtonDefaults.iconButtonColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        )
+    ) {
+        Icon(
+            imageVector = if (isPlaying) Icons.Rounded.Add else Icons.Rounded.PlayArrow,
+            contentDescription = if (isPlaying) "Pause Button" else "Play Button",
+            tint = MaterialTheme.colorScheme.onPrimary
+        )
+    }
+
+    Spacer(modifier = Modifier.height(7.dp))
 }
 
 @Composable

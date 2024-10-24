@@ -31,12 +31,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -50,7 +46,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.navigator.LocalNavigator
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_home_screen
@@ -135,17 +130,4 @@ internal fun HomeScreenText() {
 }
 
 @Composable
-internal fun HomeScreenButton() {
-    val navigator = LocalNavigator.current
-    ExtendedFloatingActionButton(onClick = {
-        // Select the audio file and once it is complete navigate to the next screen...
-        navigator?.push(item = ConfirmationScreen())
-    }, containerColor = MaterialTheme.colorScheme.primary) {
-        Icon(
-            imageVector = Icons.Rounded.Add,
-            contentDescription = "Select Audio File Button",
-            tint = MaterialTheme.colorScheme.onPrimary
-        )
-        Text(text = "Upload Audio File", modifier = Modifier.padding(all = 7.dp))
-    }
-}
+internal expect fun HomeScreenButton()
