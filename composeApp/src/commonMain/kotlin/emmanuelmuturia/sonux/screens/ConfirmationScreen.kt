@@ -57,7 +57,7 @@ import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_confirmation_screen
 import sonux.composeapp.generated.resources.light_confirmation_screen
 
-class ConfirmationScreen : Screen {
+data class ConfirmationScreen(val audioFileUri: String) : Screen {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
