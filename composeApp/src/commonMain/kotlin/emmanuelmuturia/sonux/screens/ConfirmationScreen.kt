@@ -111,7 +111,7 @@ internal fun ConfirmationScreenContent(modifier: Modifier, uri: String) {
         }
 
         item(key = "ConvertButton") {
-            ConvertButton()
+            ConvertButton(audioFileUri = uri)
         }
     }
 }
@@ -134,11 +134,11 @@ fun ConfirmationScreenImage() {
 internal expect fun AudioFileDetails(uri: String)
 
 @Composable
-internal fun ConvertButton() {
+internal fun ConvertButton(audioFileUri: String) {
     val navigator = LocalNavigator.current
     Button(onClick = {
         // Convert the audio file and navigate to the ResultsScreen once it is done...
-        navigator?.push(item = ResultsScreen())
+        navigator?.push(item = ResultsScreen(audioFileUri = audioFileUri))
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
         Text(text = "Convert To 8D", style = MaterialTheme.typography.labelLarge)
     }

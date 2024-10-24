@@ -55,7 +55,7 @@ import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_results_screen
 import sonux.composeapp.generated.resources.light_results_screen
 
-class ResultsScreen : Screen {
+data class ResultsScreen(val audioFileUri: String) : Screen {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
