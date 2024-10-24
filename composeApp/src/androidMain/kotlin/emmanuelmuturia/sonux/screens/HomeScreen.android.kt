@@ -35,7 +35,7 @@ internal actual fun HomeScreenButton() {
         onResult = { uri: Uri? ->
             if (uri != null) {
                 // Handle selected audio file URI
-                navigator?.push(item = ConfirmationScreen(audioFileUri = Json.encodeToString(value = uri)))
+                navigator?.push(item = ConfirmationScreen(audioFileUri = Uri.parse(uri.toString()).toString()))
             }
         }
     )

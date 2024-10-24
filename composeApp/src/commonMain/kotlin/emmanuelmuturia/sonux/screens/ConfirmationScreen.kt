@@ -94,13 +94,13 @@ data class ConfirmationScreen(val audioFileUri: String) : Screen {
                 )
             }
         ) { paddingValues ->
-            ConfirmationScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
+            ConfirmationScreenContent(modifier = Modifier.padding(paddingValues = paddingValues), uri = this.audioFileUri)
         }
     }
 }
 
 @Composable
-internal fun ConfirmationScreenContent(modifier: Modifier) {
+internal fun ConfirmationScreenContent(modifier: Modifier, uri: String) {
     LazyColumn(
         modifier = modifier.fillMaxSize().padding(all = 7.dp),
         verticalArrangement = Arrangement.SpaceEvenly,
@@ -111,7 +111,7 @@ internal fun ConfirmationScreenContent(modifier: Modifier) {
         }
 
         item(key = "AudioFileDetails") {
-            AudioFileDetails()
+            AudioFileDetails(uri = uri)
         }
 
         item(key = "ConvertButton") {
@@ -135,40 +135,7 @@ fun ConfirmationScreenImage() {
 }
 
 @Composable
-internal fun AudioFileDetails() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
-    ) {
-        Text(
-            text = buildAnnotatedString {
-                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
-                    append(text = "Audio Title: ")
-                }
-                append(text = "Sample Audio Title")
-            }
-        )
-
-        Text(
-            text = buildAnnotatedString {
-                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
-                    append(text = "Audio Type: ")
-                }
-                append(text = "Sample Audio Type")
-            }
-        )
-
-        Text(
-            text = buildAnnotatedString {
-                withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
-                    append(text = "Audio Size: ")
-                }
-                append(text = "Sample Audio Size")
-            }
-        )
-    }
-}
+internal expect fun AudioFileDetails(uri: String)
 
 @Composable
 internal fun ConvertButton() {
