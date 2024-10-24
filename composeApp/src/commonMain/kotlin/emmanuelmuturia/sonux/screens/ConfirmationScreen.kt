@@ -48,7 +48,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
+import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_confirmation_screen
 import sonux.composeapp.generated.resources.light_confirmation_screen
@@ -58,6 +60,7 @@ data class ConfirmationScreen(val audioFileUri: String) : Screen {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val sonuxViewModel: SonuxViewModel = koinViewModel()
         val navigator = LocalNavigator.current
         Scaffold(
             modifier = Modifier.fillMaxSize().background(
@@ -90,13 +93,19 @@ data class ConfirmationScreen(val audioFileUri: String) : Screen {
                 )
             }
         ) { paddingValues ->
-            ConfirmationScreenContent(modifier = Modifier.padding(paddingValues = paddingValues), uri = this.audioFileUri)
+            ConfirmationScreenContent(
+                modifier = Modifier.padding(paddingValues = paddingValues),
+                uri = this.audioFileUri
+            )
         }
     }
 }
 
 @Composable
-internal fun ConfirmationScreenContent(modifier: Modifier, uri: String) {
+internal fun ConfirmationScreenContent(
+    modifier: Modifier,
+    uri: String
+) {
     LazyColumn(
         modifier = modifier.fillMaxSize().padding(all = 7.dp),
         verticalArrangement = Arrangement.SpaceEvenly,
@@ -137,9 +146,8 @@ internal expect fun AudioFileDetails(uri: String)
 internal fun ConvertButton(audioFileUri: String) {
     val navigator = LocalNavigator.current
     Button(onClick = {
-        // Convert the audio file and navigate to the ResultsScreen once it is done...
         navigator?.push(item = ResultsScreen(audioFileUri = audioFileUri))
     }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)) {
-        Text(text = "Convert To 8D", style = MaterialTheme.typography.labelLarge)
+        Text(text = "Confirm", style = MaterialTheme.typography.labelLarge)
     }
 }

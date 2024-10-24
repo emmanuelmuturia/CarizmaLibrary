@@ -27,6 +27,7 @@ voyager = "1.1.0-beta02"
 lifecycleViewModelCompose = "2.8.0"
 moko = "0.18.1"
 core = "1.13.1"
+koin = "4.0.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -59,6 +60,13 @@ androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecy
 moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "moko" }
 moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko" }
 androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koin" }
+
+[bundles]
+koin = ["koin-core", "koin-android", "koin-androidx-compose"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
