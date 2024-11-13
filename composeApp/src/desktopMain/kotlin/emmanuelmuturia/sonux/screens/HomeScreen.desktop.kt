@@ -39,7 +39,6 @@ import java.io.File
 
 @Composable
 internal actual fun HomeScreenButton() {
-
     val navigator = LocalNavigator.current
 
     ExtendedFloatingActionButton(
@@ -58,11 +57,9 @@ internal actual fun HomeScreenButton() {
         )
         Text(text = "Upload Audio File", modifier = Modifier.padding(all = 7.dp))
     }
-
 }
 
 internal fun openFilePicker(): String? {
-
     val fileDialog = FileDialog(Frame(), "Select an Audio File", FileDialog.LOAD)
     fileDialog.isVisible = true
 
@@ -73,5 +70,4 @@ internal fun openFilePicker(): String? {
     }
 
     return selectedFile?.absolutePath
-
 }
