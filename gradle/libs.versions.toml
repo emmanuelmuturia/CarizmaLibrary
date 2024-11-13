@@ -1,12 +1,12 @@
 [versions]
-agp = "8.2.2"
-android-compileSdk = "34"
+agp = "8.7.2"
+android-compileSdk = "35"
 android-minSdk = "24"
-android-targetSdk = "34"
+android-targetSdk = "35"
 androidx-activityCompose = "1.9.3"
 androidx-appcompat = "1.7.0"
-androidx-constraintlayout = "2.1.4"
-androidx-core-ktx = "1.13.1"
+androidx-constraintlayout = "2.2.0"
+androidx-core-ktx = "1.15.0"
 androidx-espresso-core = "3.6.1"
 androidx-lifecycle = "2.8.2"
 androidx-material = "1.12.0"
@@ -20,13 +20,12 @@ logback = "1.5.8"
 ktlint = "11.6.1"
 detekt = "1.23.1"
 spotless = "6.23.3"
-material3 = "1.3.0"
-compose = "1.7.4"
+material3 = "1.3.1"
+compose = "1.7.5"
 assertK = "0.28.1"
 voyager = "1.1.0-beta02"
 lifecycleViewModelCompose = "2.8.0"
-moko = "0.18.1"
-core = "1.13.1"
+core = "1.15.0"
 koin = "4.0.0"
 
 [libraries]
@@ -57,8 +56,6 @@ voyager-tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", v
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewModelCompose" }
-moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "moko" }
-moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko" }
 androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
