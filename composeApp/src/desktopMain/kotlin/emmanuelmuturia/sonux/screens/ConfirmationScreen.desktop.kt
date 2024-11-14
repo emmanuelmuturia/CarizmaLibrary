@@ -44,7 +44,6 @@ import java.nio.file.Paths
 
 @Composable
 internal actual fun AudioFileDetails(uri: String) {
-
     var audioTitle by rememberSaveable { mutableStateOf(value = "") }
     var audioType by rememberSaveable { mutableStateOf(value = "") }
     var audioSize by rememberSaveable { mutableLongStateOf(value = 0L) }
@@ -52,14 +51,12 @@ internal actual fun AudioFileDetails(uri: String) {
     val file = File(uri)
 
     if (file.exists() && file.isFile) {
-
         audioTitle = file.nameWithoutExtension
 
         val path = Paths.get(file.toURI())
         audioType = Files.probeContentType(path) ?: "Unknown Type"
 
         audioSize = file.length()
-
     }
 
     Column(
@@ -94,5 +91,4 @@ internal actual fun AudioFileDetails(uri: String) {
             }
         )
     }
-
 }

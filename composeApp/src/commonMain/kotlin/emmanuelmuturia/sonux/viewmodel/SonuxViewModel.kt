@@ -23,16 +23,13 @@
 package emmanuelmuturia.sonux.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import emmanuelmuturia.sonux.effects.AudioEffects
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 
 class SonuxViewModel(
-    //private val audioEffects: AudioEffects,
+    // private val audioEffects: AudioEffects,
     private val coroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
