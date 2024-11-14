@@ -32,22 +32,22 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SonuxViewModel(
-    private val audioEffects: AudioEffects,
+    //private val audioEffects: AudioEffects,
     private val coroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     private val _isPlaying: MutableStateFlow<Boolean> = MutableStateFlow(value = false)
     val isPlaying: StateFlow<Boolean> = _isPlaying.asStateFlow()
 
-    fun onPlayPauseButtonClicked(audioFileUri: String) {
+    /*fun onPlayPauseButtonClicked(audioFileUri: String) {
         if (_isPlaying.value) {
             stopAudio()
         } else {
             playAudio(audioFileUri = audioFileUri)
         }
-    }
+    }*/
 
-    private fun playAudio(audioFileUri: String) {
+    /*private fun playAudio(audioFileUri: String) {
         _isPlaying.value = true
         viewModelScope.launch {
             audioEffects.playAudioIn8D(
@@ -57,12 +57,12 @@ class SonuxViewModel(
                 audioFileUri = audioFileUri
             )
         }
-    }
+    }*/
 
-    private fun stopAudio() {
+    /*private fun stopAudio() {
         _isPlaying.value = false
         viewModelScope.launch {
             audioEffects.stopPlayingAudio()
         }
-    }
+    }*/
 }

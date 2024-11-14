@@ -135,7 +135,7 @@ internal fun ResultsScreenContent(
             key = "DownloadButton"
         ) {
             PlayPauseButton(isPlaying = isPlaying) {
-                sonuxViewModel.onPlayPauseButtonClicked(audioFileUri = audioFileUri)
+                //sonuxViewModel.onPlayPauseButtonClicked(audioFileUri = audioFileUri)
             }
         }
 
