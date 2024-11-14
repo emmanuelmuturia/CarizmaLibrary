@@ -25,12 +25,17 @@ package emmanuelmuturia.sonux
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import emmanuelmuturia.sonux.app.App
+import emmanuelmuturia.sonux.di.initKoin
 
-fun main() = application {
-    Window(
-        onCloseRequest = ::exitApplication,
-        title = "Sonux"
-    ) {
-        App()
+fun main() {
+    initKoin()
+
+    application {
+        Window(
+            onCloseRequest = ::exitApplication,
+            title = "Sonux"
+        ) {
+            App()
+        }
     }
 }

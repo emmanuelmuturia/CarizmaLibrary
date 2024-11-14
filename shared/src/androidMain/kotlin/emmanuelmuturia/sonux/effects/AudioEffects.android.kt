@@ -25,7 +25,6 @@ package emmanuelmuturia.sonux.effects
 import android.content.Context
 import android.media.MediaPlayer
 import android.media.audiofx.EnvironmentalReverb
-import android.media.audiofx.PresetReverb
 import android.net.Uri
 import android.util.Log
 import kotlin.math.sin

@@ -33,19 +33,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
+import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import java.awt.FileDialog
 import java.awt.Frame
 import java.io.File
 
 @Composable
-internal actual fun HomeScreenButton() {
+internal actual fun HomeScreenButton(sonuxViewModel: SonuxViewModel) {
     val navigator = LocalNavigator.current
 
     ExtendedFloatingActionButton(
         onClick = {
             val audioFileUri = openFilePicker()
             if (audioFileUri != null) {
-                navigator?.push(item = ConfirmationScreen(audioFileUri = audioFileUri))
+                navigator?.push(
+                    item = ConfirmationScreen(
+                        audioFileUri = audioFileUri,
+                        sonuxViewModel = sonuxViewModel
+                    )
+                )
             }
         },
         containerColor = MaterialTheme.colorScheme.primary

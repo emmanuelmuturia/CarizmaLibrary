@@ -46,12 +46,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
+import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import org.jetbrains.compose.resources.painterResource
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_home_screen
 import sonux.composeapp.generated.resources.light_home_screen
 
-class HomeScreen : Screen {
+data class HomeScreen(val sonuxViewModel: SonuxViewModel) : Screen {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
@@ -76,7 +77,7 @@ class HomeScreen : Screen {
                 )
             },
             floatingActionButton = {
-                HomeScreenButton()
+                HomeScreenButton(sonuxViewModel = sonuxViewModel)
             }
         ) { paddingValues ->
             HomeScreenContent(modifier = Modifier.padding(paddingValues = paddingValues))
@@ -130,4 +131,4 @@ internal fun HomeScreenText() {
 }
 
 @Composable
-internal expect fun HomeScreenButton()
+internal expect fun HomeScreenButton(sonuxViewModel: SonuxViewModel)
