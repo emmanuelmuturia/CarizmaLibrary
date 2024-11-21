@@ -48,7 +48,6 @@ class AndroidAudioEffects(
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
     ) {
-        val mediaPlayer = MediaPlayer()
 
         withContext(coroutineDispatcher) {
             try {
@@ -113,7 +112,6 @@ class AndroidAudioEffects(
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
     ) {
-        val mediaPlayer = MediaPlayer()
 
         withContext(context = coroutineDispatcher) {
             var phase = 0.0
@@ -144,7 +142,6 @@ class AndroidAudioEffects(
     }
 
     override suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
-        val mediaPlayer = MediaPlayer()
 
         withContext(context = coroutineDispatcher) {
             EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
