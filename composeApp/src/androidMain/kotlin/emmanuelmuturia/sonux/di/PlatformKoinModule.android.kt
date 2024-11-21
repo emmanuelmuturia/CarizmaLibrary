@@ -40,5 +40,4 @@ actual val platformKoinModule: Module = module {
             context = androidApplication()
         )
     }
-
 }

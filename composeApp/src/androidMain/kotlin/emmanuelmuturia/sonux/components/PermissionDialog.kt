@@ -43,7 +43,6 @@ fun PermissionDialog(
     permission: String,
     permissionAction: (PermissionAction) -> Unit
 ) {
-
     val context = LocalContext.current
     val isPermissionGranted = checkIfPermissionIsGranted(context = context, permission = permission)
     if (isPermissionGranted) {
@@ -109,5 +108,4 @@ fun PermissionDialog(
             }
         }
     }
-
 }

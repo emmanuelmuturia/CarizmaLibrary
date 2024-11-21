@@ -27,13 +27,13 @@ import android.media.MediaPlayer
 import android.media.audiofx.EnvironmentalReverb
 import android.net.Uri
 import android.util.Log
+import kotlin.math.sin
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.math.sin
 
 actual class AudioEffects(
     private val mediaPlayer: MediaPlayer,
@@ -45,7 +45,6 @@ actual class AudioEffects(
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
     ) {
-
         withContext(coroutineDispatcher) {
             try {
                 mediaPlayer.setDataSource(context, Uri.parse(audioFileUri))
@@ -107,7 +106,6 @@ actual class AudioEffects(
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
     ) {
-
         withContext(context = coroutineDispatcher) {
             var phase = 0.0
 
@@ -137,7 +135,6 @@ actual class AudioEffects(
     }
 
     actual suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
-
         withContext(context = coroutineDispatcher) {
             EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
                 enabled = true
