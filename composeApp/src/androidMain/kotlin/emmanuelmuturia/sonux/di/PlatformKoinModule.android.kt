@@ -22,13 +22,23 @@
 */
 package emmanuelmuturia.sonux.di
 
+import android.media.MediaPlayer
 import emmanuelmuturia.sonux.effects.AudioEffects
-import emmanuelmuturia.sonux.effects.getAudioEffects
+import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.Module
-import org.koin.dsl.bind
 import org.koin.dsl.module
 
 actual val platformKoinModule: Module = module {
 
-    single { getAudioEffects() }.bind<AudioEffects>()
+    single<MediaPlayer> {
+        MediaPlayer()
+    }
+
+    single<AudioEffects> {
+        AudioEffects(
+            mediaPlayer = get(),
+            context = androidApplication()
+        )
+    }
+
 }

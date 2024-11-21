@@ -33,12 +33,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 import kotlin.math.sin
 
 actual class AudioEffects(
-    private val mediaPlayer: MediaPlayer = MediaPlayer()
+    private val mediaPlayer: MediaPlayer,
+    private val context: Context
 ) {
     actual suspend fun playAudioIn8D(
         audioFileUri: String,
@@ -49,8 +48,6 @@ actual class AudioEffects(
 
         withContext(coroutineDispatcher) {
             try {
-                // Load an audio file into the media player
-                val context: Context by inject()
                 mediaPlayer.setDataSource(context, Uri.parse(audioFileUri))
 
                 // Prepare the media player asynchronously

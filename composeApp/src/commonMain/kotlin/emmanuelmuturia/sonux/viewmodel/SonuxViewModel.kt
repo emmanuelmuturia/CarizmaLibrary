@@ -42,9 +42,9 @@ class SonuxViewModel(
         } else {
             playAudio(audioFileUri = audioFileUri)
         }
-    }*/
+    }
 
-    /*private fun playAudio(audioFileUri: String) {
+    private fun playAudio(audioFileUri: String) {
         _isPlaying.value = true
         viewModelScope.launch {
             audioEffects.playAudioIn8D(
@@ -54,9 +54,9 @@ class SonuxViewModel(
                 audioFileUri = audioFileUri
             )
         }
-    }*/
+    }
 
-    /*private fun stopAudio() {
+    private fun stopAudio() {
         _isPlaying.value = false
         viewModelScope.launch {
             audioEffects.stopPlayingAudio()

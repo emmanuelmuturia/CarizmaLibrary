@@ -28,6 +28,6 @@ import org.koin.dsl.KoinAppDeclaration
 fun initKoin(config: KoinAppDeclaration? = null) {
     startKoin {
         config?.invoke(this)
-        modules(modules = listOf(commonKoinModule, platformKoinModule))
+        modules(modules = listOf(commonKoinModule, platformKoinModule, sharedAndroidMainKoinModule))
     }
 }
