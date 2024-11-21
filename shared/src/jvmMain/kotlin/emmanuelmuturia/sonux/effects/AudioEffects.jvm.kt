@@ -24,10 +24,8 @@ package emmanuelmuturia.sonux.effects
 
 import kotlinx.coroutines.CoroutineDispatcher
 
-actual fun getAudioEffects(): AudioEffects = JVMAudioEffects()
-
-class JVMAudioEffects : AudioEffects {
-    override suspend fun playAudioIn8D(
+actual class AudioEffects {
+    actual suspend fun playAudioIn8D(
         audioFileUri: String,
         frequency: Float,
         amount: Float,
@@ -35,17 +33,17 @@ class JVMAudioEffects : AudioEffects {
     ) {
     }
 
-    override suspend fun applyAutoPanning(
+    actual suspend fun applyAutoPanning(
         frequency: Float,
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
     ) {
     }
 
-    override suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
+    actual suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
     }
 
-    override suspend fun stopPlayingAudio() {
+    actual suspend fun stopPlayingAudio() {
         TODO("Not yet implemented")
     }
 }

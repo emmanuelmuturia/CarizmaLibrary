@@ -37,12 +37,10 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import kotlin.math.sin
 
-actual fun getAudioEffects(): AudioEffects = AndroidAudioEffects()
-
-class AndroidAudioEffects(
+actual class AudioEffects(
     private val mediaPlayer: MediaPlayer = MediaPlayer()
-) : AudioEffects, KoinComponent {
-    override suspend fun playAudioIn8D(
+) {
+    actual suspend fun playAudioIn8D(
         audioFileUri: String,
         frequency: Float,
         amount: Float,
@@ -107,7 +105,7 @@ class AndroidAudioEffects(
         }
     }
 
-    override suspend fun applyAutoPanning(
+    actual suspend fun applyAutoPanning(
         frequency: Float,
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
@@ -141,7 +139,7 @@ class AndroidAudioEffects(
         }
     }
 
-    override suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
+    actual suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
 
         withContext(context = coroutineDispatcher) {
             EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
@@ -160,7 +158,7 @@ class AndroidAudioEffects(
         }
     }
 
-    override suspend fun stopPlayingAudio() {
+    actual suspend fun stopPlayingAudio() {
         mediaPlayer.stop()
     }
 }
