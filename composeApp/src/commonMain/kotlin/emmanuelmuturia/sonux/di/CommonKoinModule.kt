@@ -25,16 +25,13 @@ package emmanuelmuturia.sonux.di
 import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModelOf
+import org.koin.dsl.bind
 import org.koin.dsl.module
 
-val androidMainKoinModule = module {
+val commonKoinModule = module {
 
-    single<CoroutineDispatcher> {
-        Dispatchers.IO
-    }
+    single { Dispatchers.IO }.bind<CoroutineDispatcher>()
 
-    viewModel {
-        SonuxViewModel(audioEffects = get(), coroutineDispatcher = get())
-    }
+    viewModelOf(::SonuxViewModel)
 }

@@ -44,9 +44,10 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
 import emmanuelmuturia.sonux.components.PermissionDialog
 import emmanuelmuturia.sonux.permissions.PermissionAction
+import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 
 @Composable
-internal actual fun HomeScreenButton() {
+internal actual fun HomeScreenButton(sonuxViewModel: SonuxViewModel) {
     val navigator = LocalNavigator.current
 
     // State to track if permission is granted
@@ -60,7 +61,10 @@ internal actual fun HomeScreenButton() {
             if (uri != null) {
                 // Handle selected audio file URI
                 navigator?.push(
-                    item = ConfirmationScreen(audioFileUri = Uri.parse(uri.toString()).toString())
+                    item = ConfirmationScreen(
+                        audioFileUri = Uri.parse(uri.toString()).toString(),
+                        sonuxViewModel = sonuxViewModel
+                    )
                 )
             }
         }

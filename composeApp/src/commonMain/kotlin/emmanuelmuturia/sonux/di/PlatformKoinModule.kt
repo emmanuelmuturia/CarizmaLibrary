@@ -20,25 +20,8 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
-package emmanuelmuturia.sonux.app
+package emmanuelmuturia.sonux.di
 
-import androidx.compose.runtime.Composable
-import cafe.adriel.voyager.navigator.Navigator
-import cafe.adriel.voyager.transitions.SlideTransition
-import emmanuelmuturia.sonux.screens.HomeScreen
-import emmanuelmuturia.sonux.ui.theme.SonuxSharedTheme
-import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
-import org.koin.compose.KoinContext
-import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.module.Module
 
-@Composable
-fun App() {
-    SonuxSharedTheme {
-        KoinContext {
-            val sonuxViewModel: SonuxViewModel = koinViewModel()
-            Navigator(screen = HomeScreen(sonuxViewModel = sonuxViewModel)) { navigator ->
-                SlideTransition(navigator = navigator)
-            }
-        }
-    }
-}
+expect val platformKoinModule: Module

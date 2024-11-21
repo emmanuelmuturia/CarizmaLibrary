@@ -22,8 +22,58 @@
 */
 package emmanuelmuturia.sonux.screens
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.LocalNavigator
+import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
+import java.awt.FileDialog
+import java.awt.Frame
+import java.io.File
 
 @Composable
-internal actual fun HomeScreenButton() {
+internal actual fun HomeScreenButton(sonuxViewModel: SonuxViewModel) {
+    val navigator = LocalNavigator.current
+
+    ExtendedFloatingActionButton(
+        onClick = {
+            val audioFileUri = openFilePicker()
+            if (audioFileUri != null) {
+                navigator?.push(
+                    item = ConfirmationScreen(
+                        audioFileUri = audioFileUri,
+                        sonuxViewModel = sonuxViewModel
+                    )
+                )
+            }
+        },
+        containerColor = MaterialTheme.colorScheme.primary
+    ) {
+        Icon(
+            imageVector = Icons.Rounded.Add,
+            contentDescription = "Select Audio File Button",
+            tint = MaterialTheme.colorScheme.onPrimary
+        )
+        Text(text = "Upload Audio File", modifier = Modifier.padding(all = 7.dp))
+    }
+}
+
+internal fun openFilePicker(): String? {
+    val fileDialog = FileDialog(Frame(), "Select an Audio File", FileDialog.LOAD)
+    fileDialog.isVisible = true
+
+    val selectedFile: File? = if (fileDialog.file != null) {
+        File(fileDialog.directory, fileDialog.file)
+    } else {
+        null
+    }
+
+    return selectedFile?.absolutePath
 }
