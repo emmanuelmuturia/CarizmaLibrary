@@ -63,7 +63,7 @@ internal actual fun HomeScreenButton(sonuxViewModel: SonuxViewModel) {
                 navigator?.push(
                     item = ConfirmationScreen(
                         audioFileUri = Uri.parse(uri.toString()).toString(),
-                        sonuxViewModel = sonuxViewModel
+                        //sonuxViewModel = sonuxViewModel
                     )
                 )
             }

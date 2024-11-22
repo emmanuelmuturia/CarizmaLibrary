@@ -48,15 +48,17 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_home_screen
 import sonux.composeapp.generated.resources.light_home_screen
 
-data class HomeScreen(val sonuxViewModel: SonuxViewModel) : Screen {
+class HomeScreen : Screen {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val sonuxViewModel: SonuxViewModel = koinViewModel()
         Scaffold(
             modifier = Modifier.fillMaxSize().background(
                 color = MaterialTheme.colorScheme.background

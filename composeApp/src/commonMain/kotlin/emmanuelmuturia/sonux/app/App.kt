@@ -35,8 +35,7 @@ import org.koin.compose.viewmodel.koinViewModel
 fun App() {
     SonuxSharedTheme {
         KoinContext {
-            val sonuxViewModel: SonuxViewModel = koinViewModel()
-            Navigator(screen = HomeScreen(sonuxViewModel = sonuxViewModel)) { navigator ->
+            Navigator(screen = HomeScreen()) { navigator ->
                 SlideTransition(navigator = navigator)
             }
         }
