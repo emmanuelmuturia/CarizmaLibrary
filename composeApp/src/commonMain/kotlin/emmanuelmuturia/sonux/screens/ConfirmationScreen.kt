@@ -48,9 +48,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import org.jetbrains.compose.resources.painterResource
-import org.koin.compose.viewmodel.koinViewModel
 import sonux.composeapp.generated.resources.Res
 import sonux.composeapp.generated.resources.dark_confirmation_screen
 import sonux.composeapp.generated.resources.light_confirmation_screen

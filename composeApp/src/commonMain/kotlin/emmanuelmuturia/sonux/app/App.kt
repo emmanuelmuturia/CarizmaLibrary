@@ -27,9 +27,7 @@ import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.SlideTransition
 import emmanuelmuturia.sonux.screens.HomeScreen
 import emmanuelmuturia.sonux.ui.theme.SonuxSharedTheme
-import emmanuelmuturia.sonux.viewmodel.SonuxViewModel
 import org.koin.compose.KoinContext
-import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun App() {
