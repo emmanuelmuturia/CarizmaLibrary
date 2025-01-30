@@ -27,33 +27,26 @@ import android.media.MediaPlayer
 import android.media.audiofx.EnvironmentalReverb
 import android.net.Uri
 import android.util.Log
+import kotlin.math.sin
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
-import kotlin.math.sin
 
-actual fun getAudioEffects(): AudioEffects = AndroidAudioEffects()
-
-class AndroidAudioEffects(
-    private val mediaPlayer: MediaPlayer = MediaPlayer()
-) : AudioEffects, KoinComponent {
-    override suspend fun playAudioIn8D(
+actual class AudioEffects(
+    private val mediaPlayer: MediaPlayer,
+    private val context: Context
+) {
+    actual suspend fun playAudioIn8D(
         audioFileUri: String,
         frequency: Float,
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
     ) {
-        val mediaPlayer = MediaPlayer()
-
         withContext(coroutineDispatcher) {
             try {
-                // Load an audio file into the media player
-                val context: Context by inject()
                 mediaPlayer.setDataSource(context, Uri.parse(audioFileUri))
 
                 // Prepare the media player asynchronously
@@ -108,13 +101,11 @@ class AndroidAudioEffects(
         }
     }
 
-    override suspend fun applyAutoPanning(
+    actual suspend fun applyAutoPanning(
         frequency: Float,
         amount: Float,
         coroutineDispatcher: CoroutineDispatcher
     ) {
-        val mediaPlayer = MediaPlayer()
-
         withContext(context = coroutineDispatcher) {
             var phase = 0.0
 
@@ -143,9 +134,7 @@ class AndroidAudioEffects(
         }
     }
 
-    override suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
-        val mediaPlayer = MediaPlayer()
-
+    actual suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
         withContext(context = coroutineDispatcher) {
             EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
                 enabled = true
@@ -163,7 +152,7 @@ class AndroidAudioEffects(
         }
     }
 
-    override suspend fun stopPlayingAudio() {
+    actual suspend fun stopPlayingAudio() {
         mediaPlayer.stop()
     }
 }

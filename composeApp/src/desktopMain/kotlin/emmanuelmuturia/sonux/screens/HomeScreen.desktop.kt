@@ -48,8 +48,7 @@ internal actual fun HomeScreenButton(sonuxViewModel: SonuxViewModel) {
             if (audioFileUri != null) {
                 navigator?.push(
                     item = ConfirmationScreen(
-                        audioFileUri = audioFileUri,
-                        sonuxViewModel = sonuxViewModel
+                        audioFileUri = audioFileUri
                     )
                 )
             }

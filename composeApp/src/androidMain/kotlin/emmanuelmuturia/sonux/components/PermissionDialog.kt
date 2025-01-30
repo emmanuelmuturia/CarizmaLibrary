@@ -26,7 +26,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
@@ -39,9 +38,8 @@ import emmanuelmuturia.sonux.permissions.PermissionAction
 import emmanuelmuturia.sonux.permissions.checkIfPermissionIsGranted
 import emmanuelmuturia.sonux.permissions.shouldShowPermissionRationale
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-actual fun PermissionDialog(
+fun PermissionDialog(
     permission: String,
     permissionAction: (PermissionAction) -> Unit
 ) {

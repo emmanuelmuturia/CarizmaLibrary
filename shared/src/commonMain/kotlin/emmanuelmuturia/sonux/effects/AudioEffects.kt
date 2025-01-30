@@ -24,7 +24,7 @@ package emmanuelmuturia.sonux.effects
 
 import kotlinx.coroutines.CoroutineDispatcher
 
-interface AudioEffects {
+expect class AudioEffects {
 
     suspend fun playAudioIn8D(
         audioFileUri: String,
@@ -45,5 +45,3 @@ interface AudioEffects {
 
     suspend fun stopPlayingAudio()
 }
-
-expect fun getAudioEffects(): AudioEffects

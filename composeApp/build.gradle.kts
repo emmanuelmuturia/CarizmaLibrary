@@ -37,7 +37,7 @@ kotlin {
             implementation(dependencyNotation = compose.ui)
             implementation(dependencyNotation = compose.components.resources)
             implementation(dependencyNotation = compose.components.uiToolingPreview)
-            implementation(dependencyNotation = libs.androidx.lifecycle.viewmodel)
+            // implementation(dependencyNotation = libs.androidx.lifecycle.viewmodel)
             implementation(dependencyNotation = libs.androidx.lifecycle.runtime.compose)
             implementation(dependencyNotation = projects.shared)
             implementation(dependencyNotation = compose.material3)
@@ -47,6 +47,7 @@ kotlin {
             api(dependencyNotation = libs.koin.core)
             implementation(dependencyNotation = libs.koin.compose)
             implementation(dependencyNotation = libs.koin.compose.viewmodel)
+            implementation(dependencyNotation = libs.lifecycle.viewmodel)
         }
         commonTest.dependencies {
             implementation(dependencyNotation = libs.kotlin.test)
