@@ -34,8 +34,6 @@ val commonKoinModule = module {
 
     single { Dispatchers.IO }.bind<CoroutineDispatcher>()
 
-    //viewModelOf(::SonuxViewModel)
-
     viewModel {
         SonuxViewModel(
             sonuxRepository = get(),

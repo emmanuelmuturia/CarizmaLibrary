@@ -32,7 +32,6 @@ import org.koin.core.context.startKoin
 class SonuxApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        //initKoin()
         startKoin {
             androidContext(androidContext = this@SonuxApplication)
             modules(modules = listOf(commonKoinModule, platformKoinModule))
