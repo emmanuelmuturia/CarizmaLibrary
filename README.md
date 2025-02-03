@@ -1,5 +1,7 @@
 # Sonux
 
+[RESEARCH](RESEARCH.md)
+
 <div style="text-align: center;">
 
 ![Sonux](/assets/photos/sonux.png)
