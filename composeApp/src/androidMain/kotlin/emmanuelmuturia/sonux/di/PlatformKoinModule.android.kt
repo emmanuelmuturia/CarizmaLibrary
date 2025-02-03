@@ -22,8 +22,10 @@
 */
 package emmanuelmuturia.sonux.di
 
+import android.content.Context
 import android.media.MediaPlayer
 import emmanuelmuturia.sonux.repository.SonuxRepository
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -34,7 +36,9 @@ actual val platformKoinModule: Module = module {
     }
 
     single<SonuxRepository> {
-        SonuxRepository()
+        SonuxRepository(
+            context = androidContext()
+        )
     }
 
 }
