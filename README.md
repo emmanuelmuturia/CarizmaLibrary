@@ -1,7 +1,5 @@
 # Sonux
 
-[RESEARCH](RESEARCH.md)
-
 <div style="text-align: center;">
 
 ![Sonux](/assets/photos/sonux.png)
@@ -44,6 +42,8 @@ This is a Kotlin Multiplatform project targeting Android, Desktop, Server.
 * `/shared` is for the code that will be shared between all targets in the project.
   The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too...
 
+- Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+
 ## Tests
 
 - The Sonux Project features no Tests as research is currently ongoing regarding Testing in KMP...
@@ -75,7 +75,11 @@ This is a Kotlin Multiplatform project targeting Android, Desktop, Server.
 
 ## Trivia
 
-- Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+### The Auto Pan Effect
+
+![The Auto Pan Effect](/assets/photos/the_auto_pan_effect.png)
+
+The Auto Pan Effect is an audio effect where sound continuously and automatically shifts to the left or right and is part of The 8D Effect...
 
 ## Future
 
