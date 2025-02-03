@@ -31,14 +31,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SonuxViewModel(
-    private val audioEffects: AudioEffects,
+    //private val audioEffects: AudioEffects,
     private val coroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     private val _isPlaying: MutableStateFlow<Boolean> = MutableStateFlow(value = false)
     val isPlaying: StateFlow<Boolean> = _isPlaying.asStateFlow()
 
-    fun onPlayPauseButtonClicked(audioFileUri: String) {
+    /*fun onPlayPauseButtonClicked(audioFileUri: String) {
         if (_isPlaying.value) {
             stopAudio()
         } else {
@@ -63,5 +63,5 @@ class SonuxViewModel(
         viewModelScope.launch {
             audioEffects.stopPlayingAudio()
         }
-    }
+    }*/
 }
