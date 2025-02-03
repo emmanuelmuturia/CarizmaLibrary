@@ -93,6 +93,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+    implementation(project(":shared"))
     debugImplementation(dependencyNotation = compose.uiTooling)
 }
 
