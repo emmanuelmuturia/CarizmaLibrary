@@ -21,10 +21,6 @@ Sonux is a Kotlin Multiplatform [KMP] project that converts an audio into its 8D
 - The Sonux Project was purposed to become an Android Library but has been set as a KMP project for now...
 
 ## Architecture
-## Tests
-## Screenshots
-## Credits
-## Trivia
 
 This is a Kotlin Multiplatform project targeting Android, Desktop, Server.
 
@@ -42,5 +38,12 @@ This is a Kotlin Multiplatform project targeting Android, Desktop, Server.
 
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+
+## Tests
+## Screenshots
+## Credits
+## Trivia
+
+
 
 ## Future
