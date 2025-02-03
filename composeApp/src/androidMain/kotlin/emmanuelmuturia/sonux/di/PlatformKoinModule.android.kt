@@ -23,8 +23,7 @@
 package emmanuelmuturia.sonux.di
 
 import android.media.MediaPlayer
-import emmanuelmuturia.sonux.effects.AudioEffects
-import org.koin.android.ext.koin.androidApplication
+import emmanuelmuturia.sonux.repository.SonuxRepository
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -34,10 +33,8 @@ actual val platformKoinModule: Module = module {
         MediaPlayer()
     }
 
-    single<AudioEffects> {
-        AudioEffects(
-            mediaPlayer = get(),
-            context = androidApplication()
-        )
+    single<SonuxRepository> {
+        SonuxRepository()
     }
+
 }
