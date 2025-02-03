@@ -79,9 +79,14 @@ internal actual fun AudioFileDetails(uri: String) {
 
                     try {
                         // Retrieve the Display Name [Title]...
-                        val displayColumnIndex = it.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME)
-                        audioTitle = if (displayColumnIndex != -1) it.getString(displayColumnIndex)
-                        else "Unknown Title"
+                        val displayColumnIndex = it.getColumnIndex(
+                            MediaStore.Audio.Media.DISPLAY_NAME
+                        )
+                        audioTitle = if (displayColumnIndex != -1) {
+                            it.getString(displayColumnIndex)
+                        } else {
+                            "Unknown Title"
+                        }
                     } catch (e: Exception) {
                         audioTitle = "Unknown Title"
                         e.printStackTrace()
