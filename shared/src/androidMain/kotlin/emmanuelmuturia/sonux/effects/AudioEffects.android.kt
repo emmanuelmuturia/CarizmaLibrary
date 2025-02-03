@@ -1,158 +1,114 @@
-/*
- * Sonux  Copyright (C) 2024  Emmanuel Muturia™
- * This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
- * This is free software, and you are welcome to redistribute it
- * under certain conditions; type `show c' for details.
- *
- * The hypothetical commands `show w' and `show c' should show the appropriate
- * parts of the General Public License.  Of course, your program's commands
- * might be different; for a GUI interface, you would use an "about box".
- *
- * You should also get your employer (if you work as a programmer) or school,
- * if any, to sign a "copyright disclaimer" for the program, if necessary.
- * For more information on this, and how to apply and follow the GNU GPL, see
- * <https://www.gnu.org/licenses/>.
- *
- * The GNU General Public License does not permit incorporating your program
- * into proprietary programs.  If your program is a subroutine library, you
- * may consider it more useful to permit linking proprietary applications with
- * the library.  If this is what you want to do, use the GNU Lesser General
- * Public License instead of this License.  But first, please read
- * <https://www.gnu.org/licenses/why-not-lgpl.html>.
-*/
 package emmanuelmuturia.sonux.effects
 
+import android.app.DownloadManager
 import android.content.Context
-import android.media.MediaPlayer
-import android.media.audiofx.EnvironmentalReverb
 import android.net.Uri
+import android.os.Environment
 import android.util.Log
-import kotlin.math.sin
+import com.arthenica.ffmpegkit.FFmpegKit
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
+import java.lang.Exception
 
-actual class AudioEffects(
-    private val mediaPlayer: MediaPlayer,
-    private val context: Context
+/**
+ * This function converts an input audio file to one with the 8D effect applied and then
+ * downloads the resulting file via DownloadManager.
+ *
+ * @param context The Android Context.
+ * @param inputUri A string representing the absolute path of the input audio file.
+ * @param frequency A value (in Hz) controlling the auto-panning speed.
+ * @param coroutineDispatcher The CoroutineDispatcher to perform processing on (e.g., Dispatchers.IO).
+ */
+suspend fun convertAudioFileTo8DAndDownload(
+    context: Context,
+    inputUri: String,
+    frequency: Float,
+    coroutineDispatcher: CoroutineDispatcher
 ) {
-    actual suspend fun playAudioIn8D(
-        audioFileUri: String,
-        frequency: Float,
-        amount: Float,
-        coroutineDispatcher: CoroutineDispatcher
-    ) {
-        withContext(coroutineDispatcher) {
-            try {
-                mediaPlayer.setDataSource(context, Uri.parse(audioFileUri))
+    withContext(coroutineDispatcher) {
+        try {
+            // Input file (assumed to be a local file path)
+            val inputFile = File(inputUri)
+            if (!inputFile.exists()) {
+                Log.e("convertAudioFileTo8D", "Input file does not exist: $inputUri")
+                return@withContext
+            }
 
-                // Prepare the media player asynchronously
-                mediaPlayer.prepare()
+            // Define the output file (placed in the app's external Music directory)
+            val outputFile = File(
+                context.getExternalFilesDir(Environment.DIRECTORY_MUSIC),
+                "audio_with_8d_effect.mp3"
+            )
 
-                // Use coroutineScope to run both effects concurrently
-                coroutineScope {
-                    // Start playing the audio
-                    mediaPlayer.start()
+            // Build FFmpeg command:
+            // - The "apulsator" filter applies an auto-panning effect at the given frequency.
+            // - The "aecho" filter adds a simple echo which can simulate reverb.
+            // Adjust filter parameters as needed for your desired effect.
+            val command = "-y -i ${inputFile.absolutePath} " +
+                "-af \"apulsator=hz=$frequency, aecho=0.8:0.88:60:0.4\" " +
+                "${outputFile.absolutePath}"
 
-                    // Launch AutoPanning Effect
-                    launch {
-                        var phase = 0.0
+            Log.d("FFmpegCommand", command)
 
-                        while (isActive) {
-                            val leftVolume = (0.5f * (1 - amount / 100) * sin(phase) + 0.6f)
-                                .coerceIn(0.3, 0.9)
-                                .toFloat()
-                            val rightVolume = (
-                                0.5f * (1 + amount / 100) *
-                                    sin(phase + Math.PI) + 0.6f
-                                )
-                                .coerceIn(0.3, 0.9)
-                                .toFloat()
+            // Execute FFmpeg command asynchronously
+            FFmpegKit.executeAsync(command) { session ->
+                if (session.returnCode.isValueSuccess) {
+                    Log.d("convertAudioFileTo8D", "MP3 conversion successful: ${outputFile.absolutePath}")
 
-                            mediaPlayer.setVolume(leftVolume, rightVolume)
-                            phase += (2 * Math.PI * frequency) / 60
-                            delay(16L)
-                        }
+                    // Step 2: Copy the processed file to a public Downloads directory
+                    val downloadedFile = copyFileToDownloads(outputFile, "Your_Converted_Audio_File.mp3", context)
+                    if (downloadedFile != null) {
+                        Log.d("convertAudioFileTo8D", "File copied to Downloads: ${downloadedFile.absolutePath}")
+                        // Step 3: Enqueue the download via DownloadManager
+                        enqueueFileDownload(context, downloadedFile)
+                    } else {
+                        Log.e("convertAudioFileTo8D", "Failed to copy file to Downloads")
                     }
-
-                    // Launch Reverb Effect
-                    launch {
-                        EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
-                            enabled = true
-                            roomLevel = 0
-                            roomHFLevel = -4500
-                            decayTime = 10000
-                            decayHFRatio = 1000
-                            reflectionsLevel = -2000
-                            reflectionsDelay = 0
-                            reverbLevel = 0
-                            reverbDelay = 0
-                            diffusion = 1000
-                            density = 1000
-                        }
-                    }
+                } else {
+                    Log.e("convertAudioFileTo8D", "MP3 conversion failed with return code: ${session.returnCode}")
                 }
-            } catch (e: Exception) {
-                Log.e("playAudioIn8D", "Error playing audio: ${e.message}")
             }
+        } catch (e: Exception) {
+            Log.e("convertAudioFileTo8D", "Error during conversion: ${e.message}")
         }
     }
+}
 
-    actual suspend fun applyAutoPanning(
-        frequency: Float,
-        amount: Float,
-        coroutineDispatcher: CoroutineDispatcher
-    ) {
-        withContext(context = coroutineDispatcher) {
-            var phase = 0.0
-
-            while (isActive) {
-                // Calculate the Left and Right Volumes using the Sine Wave, but with a smoother transition...
-                val leftVolume =
-                    (0.5f * (1 - amount / 100) * sin(x = phase) + 0.6f).coerceIn(
-                        minimumValue = 0.3,
-                        maximumValue = 0.9
-                    ).toFloat()
-                val rightVolume =
-                    (0.5f * (1 + amount / 100) * sin(x = phase + Math.PI) + 0.6f).coerceIn(
-                        minimumValue = 0.3,
-                        maximumValue = 0.9
-                    ).toFloat()
-
-                // Apply the calculated Volumes to MediaPlayer...
-                mediaPlayer.setVolume(leftVolume, rightVolume)
-
-                // Progress the Phase for the next cycle, ensuring smooth Auto Panning...
-                phase += (2 * Math.PI * frequency) / 60
-
-                // Add a slight Delay for smoother transitions...
-                delay(timeMillis = 16L)
-            }
-        }
+/**
+ * Copies a file to the app's external Downloads directory.
+ *
+ * @param sourceFile The source File.
+ * @param fileName The name for the copied file.
+ * @param context The Android Context.
+ * @return The destination File, or null if the copy failed.
+ */
+fun copyFileToDownloads(sourceFile: File, fileName: String, context: Context): File? {
+    // Use getExternalFilesDir for app-specific downloads; you might also use Environment.getExternalStoragePublicDirectory
+    val downloadsDirectory = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
+    val destinationFile = File(downloadsDirectory, fileName)
+    return try {
+        sourceFile.copyTo(destinationFile, overwrite = true)
+        destinationFile
+    } catch (e: Exception) {
+        Log.e("copyFileToDownloads", "Error copying file: ${e.message}")
+        null
     }
+}
 
-    actual suspend fun applyReverb(coroutineDispatcher: CoroutineDispatcher) {
-        withContext(context = coroutineDispatcher) {
-            EnvironmentalReverb(0, mediaPlayer.audioSessionId).apply {
-                enabled = true
-                roomLevel = 0 // This is the maximum room size based on a 100% Room Scale...
-                roomHFLevel = -4500 // This is 50% HF Damping...
-                decayTime = 10000 // This is 50% Reverberance (Decay Time in Milliseconds)...
-                decayHFRatio = 1000 // This is the balanced Decay for Low and High Frequencies...
-                reflectionsLevel = -2000 // This is a moderately early Reflection Level...
-                reflectionsDelay = 0 // This is a 0 ms Pre-Delay...
-                reverbLevel = 0 // This is a Wet Gain (Maximum Reverb Intensity)...
-                reverbDelay = 0 // This is a 0 ms Delay before Reverberation starts...
-                diffusion = 1000 // This is Maximum Stereo Depth (100%)...
-                density = 1000 // Maximum Density (100%)
-            }
-        }
-    }
-
-    actual suspend fun stopPlayingAudio() {
-        mediaPlayer.stop()
-    }
+/**
+ * Enqueues the provided file with DownloadManager so the user is notified and can access it.
+ *
+ * @param context The Android Context.
+ * @param file The file to download.
+ */
+fun enqueueFileDownload(context: Context, file: File) {
+    val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+    val uri = Uri.fromFile(file)
+    val request = DownloadManager.Request(uri)
+        .setTitle("8D Audio File")
+        .setDescription("Your audio file with the 8D effect has been processed and is ready for download.")
+        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, file.name)
+    downloadManager.enqueue(request)
 }
