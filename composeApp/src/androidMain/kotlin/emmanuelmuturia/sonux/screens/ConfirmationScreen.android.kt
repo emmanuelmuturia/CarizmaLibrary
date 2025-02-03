@@ -52,35 +52,62 @@ internal actual fun AudioFileDetails(uri: String) {
     var audioType by rememberSaveable { mutableStateOf(value = "") }
     var audioSize by rememberSaveable { mutableLongStateOf(value = 0L) }
 
-    val projection = arrayOf(
-        MediaStore.Audio.Media.TITLE,
-        MediaStore.Audio.Media.SIZE,
-        MediaStore.Audio.Media.DISPLAY_NAME
-    )
+    try {
+        val projection = arrayOf(
+            MediaStore.Audio.Media.TITLE,
+            MediaStore.Audio.Media.SIZE,
+            MediaStore.Audio.Media.DISPLAY_NAME
+        )
 
-    val cursor: Cursor? = contentResolver.query(
-        Uri.parse(uri),
-        projection,
-        null,
-        null,
-        null
-    )
+        val cursor: Cursor? = contentResolver.query(Uri.parse(uri), projection, null, null, null)
+        if (cursor == null) {
+            // If the Query returns null, set default error values...
+            audioTitle = "Unable to retrieve details"
+            audioType = "Unknown"
+            audioSize = 0L
+        } else {
+            cursor.use {
+                if (it.moveToFirst()) {
+                    try {
+                        // Retrieve the File Size...
+                        val sizeColumnIndex = it.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE)
+                        audioSize = it.getLong(sizeColumnIndex)
+                    } catch (e: Exception) {
+                        audioSize = 0L
+                        e.printStackTrace()
+                    }
 
-    cursor.use {
-        if (it != null) {
-            if (it.moveToFirst()) {
-                // Size
-                val sizeColumnIndex = it.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE)
-                audioSize = it.getLong(sizeColumnIndex)
+                    try {
+                        // Retrieve the Display Name [Title]...
+                        val displayColumnIndex = it.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME)
+                        audioTitle = if (displayColumnIndex != -1) it.getString(displayColumnIndex)
+                        else "Unknown Title"
+                    } catch (e: Exception) {
+                        audioTitle = "Unknown Title"
+                        e.printStackTrace()
+                    }
 
-                // Display Name
-                val displayColumnIndex = it.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME)
-                audioTitle = it.getString(displayColumnIndex)
-
-                // MIME Type
-                audioType = contentResolver.getType(Uri.parse(uri)).toString()
+                    try {
+                        // Retrieve the MIME Type using Content Resolver...
+                        audioType = contentResolver.getType(Uri.parse(uri)) ?: "Unknown Type"
+                    } catch (e: Exception) {
+                        audioType = "Unknown Type"
+                        e.printStackTrace()
+                    }
+                } else {
+                    // No record found in the Cursor...
+                    audioTitle = "No audio data found"
+                    audioType = "Unknown"
+                    audioSize = 0L
+                }
             }
         }
+    } catch (e: Exception) {
+        // General Error Handling...
+        audioTitle = "Error retrieving audio details"
+        audioType = "Unknown"
+        audioSize = 0L
+        e.printStackTrace()
     }
 
     Column(
@@ -96,7 +123,6 @@ internal actual fun AudioFileDetails(uri: String) {
                 append(text = audioTitle)
             }
         )
-
         Text(
             text = buildAnnotatedString {
                 withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
@@ -105,7 +131,6 @@ internal actual fun AudioFileDetails(uri: String) {
                 append(text = audioType)
             }
         )
-
         Text(
             text = buildAnnotatedString {
                 withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
