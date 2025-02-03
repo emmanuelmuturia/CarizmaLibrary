@@ -1,0 +1,1 @@
+![The Auto Pan Effect](/assets/photos/the_auto_pan_effect.png)
