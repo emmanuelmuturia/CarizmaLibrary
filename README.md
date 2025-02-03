@@ -50,12 +50,11 @@ This is a Kotlin Multiplatform project targeting Android, Desktop, Server.
 
 ## Screenshots
 
-| Dark Mode                                                                       | Light Mode                                                                        |
-|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| ![Home Screen [Dark]](/assets/screenshots/home_screen_dark.png)                 | ![Home Screen [Light]](/assets/screenshots/home_screen_light.png)                 |
-| ![Confirmation Screen [Dark]](/assets/screenshots/confirmation_screen_dark.png) | ![Confirmation Screen [Light]](/assets/screenshots/confirmation_screen_light.png) |
-| ![Results Screen [Dark]](/assets/screenshots/results_screen_dark.png)           | ![Results Screen [Light]](/assets/screenshots/results_screen_light.png)           |
-
+| Screen                  | Dark Mode                                                                       | Light Mode                                                                        |
+|-------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| The Home Screen         | ![Home Screen [Dark]](/assets/screenshots/home_screen_dark.png)                 | ![Home Screen [Light]](/assets/screenshots/home_screen_light.png)                 |
+| The Confirmation Screen | ![Confirmation Screen [Dark]](/assets/screenshots/confirmation_screen_dark.png) | ![Confirmation Screen [Light]](/assets/screenshots/confirmation_screen_light.png) |
+| The Results Screen      | ![Results Screen [Dark]](/assets/screenshots/results_screen_dark.png)           | ![Results Screen [Light]](/assets/screenshots/results_screen_light.png)           |
 
 ## Credits
 
