@@ -26,6 +26,7 @@ kotlin {
             implementation(dependencyNotation = libs.kotlinx.coroutines.android)
             implementation(dependencyNotation = libs.androidx.core)
             implementation(dependencyNotation = libs.bundles.koin)
+            implementation(dependencyNotation = "com.arthenica:ffmpeg-kit-full:6.0-2")
         }
     }
 }
