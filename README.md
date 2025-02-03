@@ -40,10 +40,35 @@ This is a Kotlin Multiplatform project targeting Android, Desktop, Server.
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
 
 ## Tests
-## Screenshots
-## Credits
-## Trivia
 
+- The Sonux Project features no Tests as research is currently ongoing regarding Testing in KMP...
+
+## Screenshots
+
+
+
+## Credits
+
+- The Sonux Project has been developed and supported by the following Tools, Technologies, and Libraries:
+
+### 1. Kotlin Multiplatform and Compose Multiplatform
+
+- The Sonux Project has been fully built to support the Android and Desktop platforms using [Kotlin Multiplatform](https://www.jetbrains.com/kotlin-multiplatform/) while allowing for the sharing of the User Interface [UI] code across the platforms using [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/) that is powered by [Jetpack Compose](https://developer.android.com/compose)...
+
+### 2. Koin
+
+- [Koin](https://insert-koin.io/) has been used for Dependency Injection...
+
+### 3. Voyager
+
+- [Voyager](https://voyager.adriel.cafe/) has been used for Navigation in the context [pun intended] of Kotlin Multiplatform [KMP]...
+
+### 4. ktlint, detekt, and spotless
+
+- [ktlint](https://github.com/JLLeitschuh/ktlint-gradle) and [spotless](https://github.com/diffplug/spotless) has been used to format the code...
+- [detekt](https://detekt.dev/) has been used to perform Static Code Analysis...
+
+## Trivia
 
 
 ## Future
