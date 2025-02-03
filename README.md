@@ -15,6 +15,11 @@ Sonux is a Kotlin Multiplatform [KMP] project that converts an audio into its 8D
 7. [Future](#Future)
 
 ## Background
+
+- The Sonux Project was forged as a spin-off to [Carizma](https://github.com/emmanuelmuturia/Carizma) with the main objective being researching [The 8D Effect](https://www.epidemicsound.com/blog/8d-audio-what-is-it-and-whats-the-hype-all-about/)...
+- The initial iteration of The Sonux Project was powered by [MediaPlayer](https://developer.android.com/reference/android/media/MediaPlayer) but the current one relies on [FFmpeg Kit](https://github.com/arthenica/ffmpeg-kit) for Playback Control...
+- The Sonux Project was purposed to become an Android Library but has been set as a KMP project for now...
+
 ## Architecture
 ## Tests
 ## Screenshots
