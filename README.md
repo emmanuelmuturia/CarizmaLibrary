@@ -36,9 +36,6 @@ This is a Kotlin Multiplatform project targeting Android, Desktop, Server.
 * `/shared` is for the code that will be shared between all targets in the project.
   The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too...
 
-
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
-
 ## Tests
 
 - The Sonux Project features no Tests as research is currently ongoing regarding Testing in KMP...
@@ -70,5 +67,8 @@ Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-mu
 
 ## Trivia
 
+- Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
 
 ## Future
+
+- The Sonux Project is still under construction as research is still ongoing regarding Audio Manipulation in Android among other platforms...
