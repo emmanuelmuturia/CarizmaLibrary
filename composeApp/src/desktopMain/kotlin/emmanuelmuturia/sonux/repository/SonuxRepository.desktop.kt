@@ -1,5 +1,5 @@
 /*
- * Sonux  Copyright (C) 2024  Emmanuel Muturia™
+ * Sonux  Copyright (C) 2025  Emmanuel Muturia™
  * This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
  * This is free software, and you are welcome to redistribute it
  * under certain conditions; type `show c' for details.
@@ -20,24 +20,15 @@
  * Public License instead of this License.  But first, please read
  * <https://www.gnu.org/licenses/why-not-lgpl.html>.
 */
-package ui
+package emmanuelmuturia.sonux.repository
 
-class ConfirmationScreenUITest {
+import kotlinx.coroutines.CoroutineDispatcher
 
-    /*@OptIn(ExperimentalTestApi::class)
-    @Test
-    fun testConfirmationScreenUIElements() = runComposeUiTest {
-        setContent {
-            ConfirmationScreen()
-        }
-
-        onNodeWithText(text = "Confirmation").assertExists()
-        onNodeWithContentDescription(label = "Navigate Back Icon").assertExists()
-        onNodeWithContentDescription(label = "Navigate Back Icon").performClick()
-        onNodeWithContentDescription(label = "Confirmation Screen Image").assertExists()
-        onNodeWithText(text = "Audio Title: Sample Audio Title").assertExists()
-        onNodeWithText(text = "Audio Type: Sample Audio Type").assertExists()
-        onNodeWithText(text = "Audio Size: Sample Audio Size").assertExists()
-        onNodeWithText(text = "Convert To 8D").performClick()
-    }*/
+actual class SonuxRepository {
+    actual suspend fun convertAndDownloadAudio(
+        inputUri: String,
+        frequency: Float,
+        coroutineDispatcher: CoroutineDispatcher
+    ) {
+    }
 }

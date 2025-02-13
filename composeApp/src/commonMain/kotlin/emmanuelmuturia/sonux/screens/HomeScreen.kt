@@ -40,6 +40,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -67,6 +69,9 @@ class HomeScreen : Screen {
                 CenterAlignedTopAppBar(
                     title = {
                         Text(
+                            modifier = Modifier.semantics {
+                                contentDescription = "Sonux Top App Bar"
+                            },
                             text = "Sonux",
                             style = MaterialTheme.typography.headlineLarge,
                             fontWeight = FontWeight.ExtraBold,
@@ -123,6 +128,9 @@ internal fun HomeScreenImage() {
 @Composable
 internal fun HomeScreenText() {
     Text(
+        modifier = Modifier.semantics {
+            contentDescription = "Home Screen Text"
+        },
         text = buildAnnotatedString {
             withStyle(style = SpanStyle(fontWeight = FontWeight.ExtraBold)) {
                 append(text = "Supported File Formats: ")

@@ -29,7 +29,9 @@ kotlin {
             implementation(dependencyNotation = libs.material3)
             implementation(dependencyNotation = projects.shared)
             implementation(dependencyNotation = libs.koin.android)
+            implementation(dependencyNotation = libs.koin.core)
             implementation(dependencyNotation = libs.koin.androidx.compose)
+            implementation(dependencyNotation = "com.arthenica:ffmpeg-kit-full:6.0-2")
         }
         commonMain.dependencies {
             implementation(dependencyNotation = compose.runtime)
@@ -93,6 +95,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+    implementation(project(":shared"))
     debugImplementation(dependencyNotation = compose.uiTooling)
 }
 

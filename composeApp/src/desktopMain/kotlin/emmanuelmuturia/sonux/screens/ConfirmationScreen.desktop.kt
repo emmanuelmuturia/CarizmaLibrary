@@ -1,5 +1,5 @@
 /*
- * Sonux  Copyright (C) 2024  Emmanuel Muturia™
+ * Sonux  Copyright (C) 2025  Emmanuel Muturia™
  * This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
  * This is free software, and you are welcome to redistribute it
  * under certain conditions; type `show c' for details.
@@ -48,15 +48,43 @@ internal actual fun AudioFileDetails(uri: String) {
     var audioType by rememberSaveable { mutableStateOf(value = "") }
     var audioSize by rememberSaveable { mutableLongStateOf(value = 0L) }
 
-    val file = File(uri)
+    try {
+        val file = File(uri)
+        if (file.exists() && file.isFile) {
+            // Retrieve the Audio Title [file name without extension]...
+            try {
+                audioTitle = file.nameWithoutExtension
+            } catch (e: Exception) {
+                audioTitle = "Unknown Title"
+                e.printStackTrace()
+            }
 
-    if (file.exists() && file.isFile) {
-        audioTitle = file.nameWithoutExtension
+            // Retrieve the MIME Type using Java NIO...
+            try {
+                val path = Paths.get(file.toURI())
+                audioType = Files.probeContentType(path) ?: "Unknown Type"
+            } catch (e: Exception) {
+                audioType = "Unknown Type"
+                e.printStackTrace()
+            }
 
-        val path = Paths.get(file.toURI())
-        audioType = Files.probeContentType(path) ?: "Unknown Type"
-
-        audioSize = file.length()
+            // Retrieve the File Size...
+            try {
+                audioSize = file.length()
+            } catch (e: Exception) {
+                audioSize = 0L
+                e.printStackTrace()
+            }
+        } else {
+            audioTitle = "File does not exist"
+            audioType = "N/A"
+            audioSize = 0L
+        }
+    } catch (e: Exception) {
+        audioTitle = "Error retrieving file details"
+        audioType = "Error"
+        audioSize = 0L
+        e.printStackTrace()
     }
 
     Column(

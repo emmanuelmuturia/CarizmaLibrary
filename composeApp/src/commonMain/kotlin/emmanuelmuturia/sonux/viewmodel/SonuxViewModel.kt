@@ -23,43 +23,22 @@
 package emmanuelmuturia.sonux.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import emmanuelmuturia.sonux.repository.SonuxRepository
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 class SonuxViewModel(
-    // private val audioEffects: AudioEffects,
+    private val sonuxRepository: SonuxRepository,
     private val coroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
-    private val _isPlaying: MutableStateFlow<Boolean> = MutableStateFlow(value = false)
-    val isPlaying: StateFlow<Boolean> = _isPlaying.asStateFlow()
-
-    /*fun onPlayPauseButtonClicked(audioFileUri: String) {
-        if (_isPlaying.value) {
-            stopAudio()
-        } else {
-            playAudio(audioFileUri = audioFileUri)
-        }
-    }
-
-    private fun playAudio(audioFileUri: String) {
-        _isPlaying.value = true
+    fun convertAndDownloadAudio(audioFileUri: String) {
         viewModelScope.launch {
-            audioEffects.playAudioIn8D(
-                frequency = 1.0f,
-                amount = 100f,
-                coroutineDispatcher = coroutineDispatcher,
-                audioFileUri = audioFileUri
+            sonuxRepository.convertAndDownloadAudio(
+                inputUri = audioFileUri,
+                coroutineDispatcher = coroutineDispatcher
             )
         }
     }
-
-    private fun stopAudio() {
-        _isPlaying.value = false
-        viewModelScope.launch {
-            audioEffects.stopPlayingAudio()
-        }
-    }*/
 }
