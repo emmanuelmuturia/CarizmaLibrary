@@ -10,6 +10,12 @@
 
 Sonux is a Kotlin Multiplatform [KMP] project that converts an audio into its 8D form using the FFMPEG Library...
 
+<div style="text-align: center;">
+
+![The Demo](assets/demo/demo.gif)
+
+</div>
+
 ## Table of Contents
 
 1. [Background](#Background)
